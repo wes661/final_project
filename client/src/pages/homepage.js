@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../css/homepage.css";
 
-const Homepage = () => (
+class Homepage extends React.Component{
+    componentDidMount(){
+    // ------    put on page load js here ------ //
+    }
+    render(){
+        return (
+    // -------- Start HTML here -------- //
     <div>
         <h1>Home page</h1>
         <p>
@@ -21,6 +28,8 @@ const Homepage = () => (
             <Link to="/overview"> overview </Link>
         </p>
     </div>
-);
+    // ------ End HTML here -------------- //
+    )}
+};
 
 export default Homepage;
