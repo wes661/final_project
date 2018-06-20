@@ -1,7 +1,14 @@
 import React from "react";
+import "../css/medications.css";
 import { Link } from "react-router-dom";
 
-const Medications = () => (
+class Medications extends React.Component {
+    componentDidMount() {
+    // ------    put on page load js here ------ //
+    }
+    render() {
+        return (
+    // -------- Start HTML here -------- //
     <div>
         <h1>Medication page</h1>
         <p>
@@ -15,6 +22,8 @@ const Medications = () => (
             <Link to="/homepage"> homepage </Link>
         </p> 
     </div>
-);
+    // ------ End HTML here -------------- //
+    )}
+};
 
 export default Medications;
