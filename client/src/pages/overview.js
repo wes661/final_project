@@ -9,18 +9,35 @@ class Overview extends React.Component {
     render() {
         return (
     // -------- Start HTML here -------- //
-    <div>
-        <h1>Overview page</h1>
-        <p>
-            Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris,
-      ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam
-      quis arcu non lectus tincidunt fermentum. Suspendisse aliquet orci porta quam semper
-      imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed rhoncus mollis
-      diam, sit amet facilisis lectus blandit at.
-    </p>
-        <p>
-            <Link to="/homepage"> homepage </Link>
-        </p> 
+    
+    <div className="wrapper">
+        <div className="container-fluid ovrVeiwHeader">
+            <div className="page-header">
+                <h1>
+                Overveiw
+                </h1>
+            </div>
+        </div>
+    
+        <div>
+            <p>
+                <Link to="/homepage"> homepage </Link>
+            </p> 
+        </div>
+        
+        <div className="container">
+            <div className="row">
+                <div className="col-2">
+                    {/* Content  */}
+                </div>
+                <div className="col-2">
+                    {/* Content */}
+                </div>
+                        <div className="col-8">
+                    {/* Content */}
+                </div>
+            </div>
+        </div>
     </div>
     // ------ End HTML here -------------- //
     )}
