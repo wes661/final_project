@@ -1,62 +1,27 @@
-module.exports = function(sequelize, Sequelize) {
-  var User = sequelize.define("user", {
-    id: {
-      autoIncrement: true,
-      primaryKey: true,
-      type: Sequelize.INTEGER
-    },
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-    firstname: {
-      type: Sequelize.STRING,
-      notEmpty: true
-    },
+//Create Schema
+const UserSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  avatar: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
 
-    lastname: {
-      type: Sequelize.STRING,
-      notEmpty: true
-    },
-
-    username: {
-      type: Sequelize.TEXT
-    },
-
-    about: {
-      type: Sequelize.TEXT
-    },
-
-    email: {
-      type: Sequelize.STRING,
-      validate: {
-        isEmail: true
-      }
-    },
-
-    password: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-
-    last_login: {
-      type: Sequelize.DATE
-    },
-
-    status: {
-      type: Sequelize.ENUM("active", "inactive"),
-      defaultValue: "active"
-    }
-  });
-
-  User.associate = function(models) {
-    User.hasMany(models.appointment, {
-      onDelete: "cascade"
-    });
-  };
-
-  User.associate = function(models) {
-    User.hasMany(models.med, {
-      onDelete: "cascade"
-    });
-  };
-
-  return User;
-};
+module.exports = User = mongoose.model("users", UserSchema);
