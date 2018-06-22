@@ -15,8 +15,8 @@ class Main extends React.Component {
     <div className="logbox">
       <form className="signup" method="post" action="/signup">
         <h1>Account login</h1>
-        <input name="user[email]" type="email" placeholder="enter your email" class="input pass" />
-        <input name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass" />
+        <input name="user[email]" type="email" placeholder="enter your email" className="input pass" />
+        <input name="user[password]" type="password" placeholder="enter your password" required="required" className="input pass" />
         <input type="submit" value="Sign in" className="inputButton" />
         <div className="text-center" >
           <a href="# " className=" ">create an account</a> - <a href="# " className=" ">forgot password</a>
