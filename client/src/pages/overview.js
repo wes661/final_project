@@ -18,22 +18,24 @@ class Overview extends React.Component {
                 </h1>
             </div>
         </div>
-    </div>
-    <div>
-        <p>
-            <Link to="/homepage"> homepage </Link>
-        </p> 
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-2">
-                 {/* Content  */}
-            </div>
-            <div class="col-2">
-                {/* Content */}
-            </div>
-                    <div class="col-8">
-                {/* Content */}
+    
+        <div>
+            <p>
+                <Link to="/homepage"> homepage </Link>
+            </p> 
+        </div>
+        
+        <div className="container">
+            <div className="row">
+                <div className="col-2">
+                    {/* Content  */}
+                </div>
+                <div className="col-2">
+                    {/* Content */}
+                </div>
+                        <div className="col-8">
+                    {/* Content */}
+                </div>
             </div>
         </div>
     </div>

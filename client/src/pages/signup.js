@@ -10,14 +10,14 @@ class Overview extends React.Component {
         return (
     // -------- Start HTML here -------- //
     
-    <div class="col-md-6">
+    <div className="col-md-6">
     <div id="logbox">
       <form id="signup" method="post" action="/signup">
         <h1>Account login</h1>
         <input name="user[email]" type="email" placeholder="enter your email" class="input pass" />
         <input name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass" />
-        <input type="submit" value="Sign in" class="inputButton" />
-        <div class="text-center" >
+        <input type="submit" value="Sign in" className="inputButton" />
+        <div className="text-center" >
           <a href="# " id=" ">create an account</a> - <a href="# " id=" ">forgot password</a>
         </div>  
       </form>
@@ -27,4 +27,4 @@ class Overview extends React.Component {
     )}
 };
 
-export default Overview;
+export default Signup;

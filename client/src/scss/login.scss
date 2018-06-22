@@ -12,17 +12,6 @@ $blueish: #2E294E;
 $greenish: #1B998B;
 $lightgreenish: #C5D86D;
 
-::selection {
-    background-color: #b5e2e7;
-  }
-  
-  ::-moz-selection {
-    background-color: #8ac7d8;
-  }
-  
-  body {
-    // background-image: url(./public/oil-in-water.jpg)
-  }
   
   .container {
     display: -webkit-flex;
@@ -30,7 +19,7 @@ $lightgreenish: #C5D86D;
     height: 100%;
   }
   
-  #logbox {
+  .logbox {
     padding: 10px;
     margin: 50px auto;
     width: 340px;

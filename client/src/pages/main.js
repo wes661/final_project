@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../logo.svg";
-import "../css/App.css";
 import { Link } from "react-router-dom";
+import "../css/login.css";
+
 
 class Main extends React.Component {
     componentDidMount() {
@@ -10,18 +10,21 @@ class Main extends React.Component {
     render() {
         return (
     // -------- Start HTML here -------- //
-    <div className="App">
-    <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-            <Link to="/homepage"> homepage </Link>
-        </p>  
+    <div className="wrapper">
+    <div className="col-6">
+    <div className="logbox">
+      <form className="signup" method="post" action="/signup">
+        <h1>Account login</h1>
+        <input name="user[email]" type="email" placeholder="enter your email" class="input pass" />
+        <input name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass" />
+        <input type="submit" value="Sign in" className="inputButton" />
+        <div className="text-center" >
+          <a href="# " className=" ">create an account</a> - <a href="# " className=" ">forgot password</a>
+        </div>  
+      </form>
     </div>
+  </div>
+  </div>
     // ------ End HTML here -------------- //
     )}
 };
