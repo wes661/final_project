@@ -6,8 +6,20 @@
 @mixin smaller{
     font-family: 'Neuton', serif;
 }
-$redish: #D7263D;
-$orangeish: #F46036;
+
 $blueish: #2E294E;
-$greenish: #1B998B;
-$lightgreenish: #C5D86D;
+
+.wrapper {
+    background-image: url("../wallpaper.png");
+    height: 1000px;
+}
+
+.ovrVeiwHeader{
+    @include large;
+    font-size: 2em;
+    background-color: $blueish;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
