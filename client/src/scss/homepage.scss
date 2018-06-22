@@ -11,3 +11,48 @@ $orangeish: #F46036;
 $blueish: #2E294E;
 $greenish: #1B998B;
 $lightgreenish: #C5D86D;
+
+.wrapper {
+    background-image: url("../wallpaper.png");
+    height: 1000px;
+}
+
+.homeHeader{
+    @include large;
+    font-size: 2em;
+    background-color: $lightgreenish;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+.medBtn{
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 40px;
+    background-color: $orangeish;
+    box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
+        a {
+            color:white
+        }
+}
+.appBtn {
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 40px;
+    background-color: $greenish;
+    box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
+        a {
+            color:white
+        }
+}
+.overBtn{
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 40px;
+    background-color: $blueish;
+    box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
+        a {
+            color:white
+        }
+}
