@@ -1,55 +1,62 @@
-module.exports = function (sequelize, Sequelize) {
+module.exports = function(sequelize, Sequelize) {
+  var User = sequelize.define("user", {
+    id: {
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER
+    },
 
-    var User = sequelize.define('user', {
+    firstname: {
+      type: Sequelize.STRING,
+      notEmpty: true
+    },
 
-        id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: Sequelize.INTEGER
-        },
+    lastname: {
+      type: Sequelize.STRING,
+      notEmpty: true
+    },
 
-        firstname: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
+    username: {
+      type: Sequelize.TEXT
+    },
 
-        lastname: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
+    about: {
+      type: Sequelize.TEXT
+    },
 
-        username: {
-            type: Sequelize.TEXT
-        },
+    email: {
+      type: Sequelize.STRING,
+      validate: {
+        isEmail: true
+      }
+    },
 
-        about: {
-            type: Sequelize.TEXT
-        },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
 
-        email: {
-            type: Sequelize.STRING,
-            validate: {
-                isEmail: true
-            }
-        },
+    last_login: {
+      type: Sequelize.DATE
+    },
 
-        password: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
+    status: {
+      type: Sequelize.ENUM("active", "inactive"),
+      defaultValue: "active"
+    }
+  });
 
-        last_login: {
-            type: Sequelize.DATE
-        },
-
-        status: {
-            type: Sequelize.ENUM('active', 'inactive'),
-            defaultValue: 'active'
-        }
-
-
+  User.associate = function(models) {
+    User.hasMany(models.appointment, {
+      onDelete: "cascade"
     });
+  };
 
-    return User;
+  User.associate = function(models) {
+    User.hasMany(models.med, {
+      onDelete: "cascade"
+    });
+  };
 
-}
+  return User;
+};
