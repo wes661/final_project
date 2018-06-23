@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/medications.css";
+import "../css/medication.css";
 import { Link } from "react-router-dom";
 
 class Medications extends React.Component {
@@ -50,7 +50,7 @@ class Medications extends React.Component {
     </button>
 
     // Modal 
-    <div className="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
