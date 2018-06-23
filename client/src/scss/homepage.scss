@@ -12,10 +12,10 @@ $blueish: #2E294E;
 $greenish: #1B998B;
 $lightgreenish: #C5D86D;
 
-.wrapper {
-    background-image: url("../wallpaper.png");
-    height: 800px;
-}
+// .wrapper {
+//     background-image: url("../wallpaper.png");
+//     height: 800px;
+// }
 .homeHeader{
     @include large;
     font-size: 2em;
