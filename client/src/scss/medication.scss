@@ -8,3 +8,79 @@
 }
 
 $orangeish: #F46036;
+
+.wrapper {
+    background-image: url("../wallpaper.png");
+    height: 800px;
+}
+
+.table{
+    width:300px;
+    position: flex;
+    // border:solid 1px;
+    margin-top:50px;
+    margin-left:30px;
+    @include smaller; 
+    font-size: 15px;
+    background-color: white;
+    
+}
+.list-group{
+    margin-top:20px;
+    @include smaller;
+    font-size: 15px;
+    width:300px;
+    margin-left:30px;
+    background-color: $orangeish;
+}
+.stickyHeader{
+    background-color: $orangeish;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+.topBand{
+    // background-color: $orangeish;
+    // color:$orangeish;
+    @include larger;
+}
+.active{
+    background-color:$orangeish;
+}
+.badge-primary{
+    background-color: $orangeish;
+    margin-top:10px;
+}
+.addBtn{
+    margin-left:3px;
+    margin-top: 5px;
+    @include large;
+    color:$orangeish
+}
+.minitron{
+    color:white;
+    h1{
+        @include large;
+        font-size:30px;
+        // postition:center;
+        width: 300px;
+        padding-bottom: 10px;
+    }
+    a{
+        @include smaller;
+        font-size:5px;
+        // color:white;
+        float:left;
+    }
+}
+
+th{
+    @include large;
+    font-size: 30px;
+    color:white;
+    // background-color: 
+}
+@media{
+    
+}
