@@ -21,7 +21,31 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  appointments: [
+    {
+      name: {
+        type: String,
+        required: true
+      },
+      where: {
+        type: String,
+        required: true
+      },
+      when: {
+        type: Date,
+        required: true
+      }
+    }
+  ],
+  meds: [
+    {
+      name: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
