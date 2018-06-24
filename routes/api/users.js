@@ -9,6 +9,7 @@ const passport = require("passport");
 //Load Input Validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const validateAppointmentInput = require("../../validation/appointment");
 
 //Load User model
 const User = require("../../models/User");
@@ -18,7 +19,7 @@ const User = require("../../models/User");
 //@access Public
 router.get("/test", (req, res) => res.json({ msg: "users works" }));
 
-//@route  GET api/users/register
+//@route  POST api/users/register
 //@desc   Register User
 //@access Public
 
@@ -33,16 +34,12 @@ router.post("/register", (req, res) => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
-      const avatar = gravatar.url(req.body.email, {
-        s: "200", //Size
-        r: "pg", //Rating
-        d: "mm" //Default
-      });
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        avatar,
-        password: req.body.password
+        password: req.body.password,
+        appointments: [],
+        meds: []
       });
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -85,7 +82,7 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         //User Matched
 
-        const payload = { id: user.id, name: user.name, avatar: user.avatar }; //Create JWT payload
+        const payload = { id: user.id, name: user.name }; //Create JWT payload
 
         //Sign Token
         jwt.sign(
@@ -118,7 +115,94 @@ router.get(
     res.json({
       id: req.user.id,
       name: req.user.name,
-      email: req.user.email
+      email: req.user.email,
+      appointments: req.user.appointments,
+      meds: req.user.meds
+    });
+  }
+);
+
+//@route  POST api/users/appointments
+//@desc   Post new appointment
+//@access Private
+
+router.post(
+  "/appointments",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateAppointmentInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+    //Get fields
+    console.log(req.user);
+    User.findOne({ _id: req.user._id }).then(user => {
+      console.log(user);
+      const newAppointment = {
+        name: req.body.name,
+        where: req.body.where,
+        when: req.body.when
+      };
+
+      //Add to appointment array
+
+      user.appointments.unshift(newAppointment);
+
+      user.save().then((user = res.json(user)));
+    });
+  }
+);
+
+//@route  POST api/users/meds
+//@desc   Post new med
+//@access Private
+
+router.post(
+  "/meds",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    //Get fields
+    console.log(req.user);
+    User.findOne({ _id: req.user._id }).then(user => {
+      console.log(user);
+      const newMed = {
+        name: req.body.name
+      };
+
+      //Add to appointment array
+
+      user.meds.unshift(newMed);
+
+      user.save().then((user = res.json(user)));
+    });
+  }
+);
+
+//@route  GET api/users/appointments
+//@desc   Return appointments
+//@access Private
+
+router.get(
+  "/appointments",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      appointments: req.user.appointments
+    });
+  }
+);
+
+//@route  GET api/users/meds
+//@desc   Return meds
+//@access Private
+
+router.get(
+  "/meds",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      meds: req.user.meds
     });
   }
 );
