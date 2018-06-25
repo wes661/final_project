@@ -9,6 +9,7 @@ import store from "./store";
 import Appointments from "./pages/appointments";
 import Homepage from "./pages/homepage";
 import Main from "./pages/main";
+import Signup from "./pages/signup";
 import Medications from "./pages/medications";
 import Overview from "./pages/overview";
 import background from "./pictures/wallpaper.png";
@@ -35,6 +36,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path="/" component={Main} />
+            <Route exact path="/signup" component={Signup} />
             <Route exact path="/appointments" component={Appointments} />
             <Route exact path="/homepage" component={Homepage} />
             <Route path="/medications" component={Medications} />

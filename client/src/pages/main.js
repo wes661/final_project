@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { loginUser } from "../actions/authactions";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../css/login.css";
 
 class Main extends React.Component {
@@ -63,7 +63,7 @@ class Main extends React.Component {
                   className={classnames("form-control form-control-lg", {
                     "is-invalid": errors.email
                   })}
-                  placeholder="enter your email"
+                  placeholder="Email"
                   name="email"
                   value={this.state.email}
                   onChange={this.onChange}
@@ -78,7 +78,7 @@ class Main extends React.Component {
                   className={classnames("form-control form-control-lg", {
                     "is-invalid": errors.password
                   })}
-                  placeholder="enter your password"
+                  placeholder="Password"
                   name="password"
                   required="required"
                   value={this.state.password}
@@ -90,13 +90,12 @@ class Main extends React.Component {
               </div>
               <input type="submit" className="inputButton" />
               <div className="text-center">
-                <a href="" className=" ">
-                  create an account
-                </a>{" "}
-                -{" "}
-                <a href=" " className=" ">
+                <Link to="/signup" className="btn btn-sm btn-info mr-2">
+                  Sign Up
+                </Link>{" "}
+                {/* <a href=" " className=" ">
                   forgot password
-                </a>
+                </a> */}
               </div>
             </form>
           </div>
