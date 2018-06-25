@@ -13,6 +13,7 @@ import Signup from "./pages/signup";
 import Medications from "./pages/medications";
 import Overview from "./pages/overview";
 import background from "./pictures/wallpaper.png";
+import Navbar from "./components/Navbar";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -35,6 +36,7 @@ class App extends React.Component {
       <Provider store={store}>
         <Router>
           <div>
+            <Navbar />
             <Route exact path="/" component={Main} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/appointments" component={Appointments} />

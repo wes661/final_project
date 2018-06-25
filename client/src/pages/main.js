@@ -45,7 +45,9 @@ class Main extends React.Component {
     this.props.loginUser(userData);
   };
   componentDidMount() {
-    // ------    put on page load js here ------ //
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/homepage");
+    }
   }
   render() {
     const { errors } = this.state;
