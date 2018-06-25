@@ -1,66 +1,100 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import classnames from "classnames";
+import { loginUser } from "../actions/authactions";
 // import { Link } from "react-router-dom";
 import "../css/login.css";
-import API from "../utils/API";
 
 class Main extends React.Component {
-  state = {
-    email: "",
-    password: ""
-  };
-  handleInputChange = event => {
-    const { name, value } = event.target;
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      errors: {}
+    };
+
+    this.onChange = this.onChange.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/homepage");
+    }
+
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  onChange = e => {
+    const { name, value } = e.target;
     this.setState({
       [name]: value
     });
   };
-  handleFormSubmit = e => {
-    e.preventDefault();
 
-    API.login(this.state.email, this.state.password).then(res => {
-      console.log(res.data);
-    });
+  onSubmit = e => {
+    e.preventDefault();
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.loginUser(userData);
   };
   componentDidMount() {
     // ------    put on page load js here ------ //
   }
   render() {
+    const { errors } = this.state;
+
     return (
       // -------- Start HTML here -------- //
       <div className="wrapper">
         <div className="col-6">
           <div className="logbox">
-            <form className="signup">
+            <form noValidate onSubmit={this.onSubmit}>
               <h1>Account login</h1>
-              <input
-                name="email"
-                type="email"
-                placeholder="enter your email"
-                className="input pass"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-              />
-              <input
-                name="password"
-                type="password"
-                placeholder="enter your password"
-                required="required"
-                className="input pass"
-                value={this.state.password}
-                onChange={this.handleInputChange}
-              />
-              <input
-                type="submit"
-                value="Sign in"
-                className="inputButton"
-                onClick={this.handleFormSubmit}
-              />
+              <div className="form-group">
+                <input
+                  type="email"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.email
+                  })}
+                  placeholder="enter your email"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.onChange}
+                />
+                {errors.email && (
+                  <div className="invalid-feedback">{errors.email}</div>
+                )}
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.password
+                  })}
+                  placeholder="enter your password"
+                  name="password"
+                  required="required"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                />
+                {errors.password && (
+                  <div className="invalid-feedback">{errors.password}</div>
+                )}
+              </div>
+              <input type="submit" className="inputButton" />
               <div className="text-center">
-                <a href="# " className=" ">
+                <a href="" className=" ">
                   create an account
                 </a>{" "}
                 -{" "}
-                <a href="# " className=" ">
+                <a href=" " className=" ">
                   forgot password
                 </a>
               </div>
@@ -73,4 +107,18 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+Main.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Main);
