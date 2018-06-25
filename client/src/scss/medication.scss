@@ -19,7 +19,7 @@ $orangeish: #F46036;
     position: flex;
     // border:solid 1px;
     margin-top:50px;
-    margin-left:30px;
+    margin-left:10px;
     @include smaller; 
     font-size: 15px;
     background-color: white;
@@ -30,7 +30,7 @@ $orangeish: #F46036;
     @include smaller;
     font-size: 15px;
     width:300px;
-    margin-left:30px;
+    margin-left:10px;
     background-color: $orangeish;
 }
 .stickyHeader{
