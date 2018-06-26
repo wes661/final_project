@@ -24,22 +24,22 @@ class Navbar extends Component {
             <Link className="nav-link" to="/">
               Logout
             </Link>
-            <Link className="nav-link" to="/homepage">
-              Home Page
-            </Link>
-            <Link className="nav-link" to="/overview">
-              Overview
-            </Link>
-            <Link className="nav-link" to="/medication">
-             Medications
-            </Link>
-            <Link className="nav-link" to="/appointment">
-              Appointments
-            </Link>
-            <Link className="nav-link" to="/about">
-              Our Mission
-            </Link>
           </a>
+          <Link className="nav-link" to="/homepage">
+            Home Page
+            </Link>
+          <Link className="nav-link" to="/overview">
+            Overview
+            </Link>
+          <Link className="nav-link" to="/medications">
+            Medications
+            </Link>
+          <Link className="nav-link" to="/appointments">
+            Appointments
+            </Link>
+          <Link className="nav-link" to="/about">
+            Our Mission
+            </Link>
         </li>
       </ul>
     );
