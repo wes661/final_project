@@ -46,6 +46,7 @@ $padding: 10px;
     border-radius: 20px;
     box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
 }
+
 .profileName{
     font-size: 1em;
 }
@@ -132,10 +133,7 @@ table {
          }
       }
 
-      &:nth-child(2):before { content: 'Location:'; }
-      &:nth-child(3):before { content: 'Time:'; }
-      &:nth-child(4):before { content: 'Comments:'; }
-      &:nth-child(5):before { content: 'Comments:'; }
+
    }
    
    tr {

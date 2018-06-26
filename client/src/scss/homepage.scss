@@ -49,7 +49,7 @@ $lightgreenish: #C5D86D;
 .medBtn{
     padding: 40px;
     border-radius: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
     background-color: $orangeish;
     box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
         a {
@@ -62,8 +62,8 @@ $lightgreenish: #C5D86D;
 .appBtn {
     padding: 40px;
     border-radius: 15px;
-    margin-top: 40px;
-    background-color: $greenish;
+    margin-top: 30px;
+    background-color: $lightgreenish;
     box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
         a {
             @include smaller;
@@ -75,7 +75,20 @@ $lightgreenish: #C5D86D;
 .overBtn{
     padding: 40px;
     border-radius: 15px;
-    margin-top: 40px;
+    margin-top: 30px;
+    background-color: $greenish;
+    box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
+        a {
+            @include smaller;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+            color:white
+        }
+}
+.aboutBtn{
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 30px;
     background-color: $blueish;
     box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
         a {
