@@ -106,10 +106,13 @@ class Medications extends React.Component {
     );
   }
 }
+
 Medications.propTypes = {
   auth: PropTypes.object.isRequired
 };
+
 const mapStateToProps = state => ({
   auth: state.auth
 });
+
 export default connect(mapStateToProps)(Medications);
