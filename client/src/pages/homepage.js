@@ -18,25 +18,20 @@ class Homepage extends React.Component {
     return (
       // -------- Start HTML here -------- //
       <div className="wrapper">
-        <div className="container-fluid homeHeader">
-          <div className="page-header">
-            <h1>Home Page</h1>
-          </div>
-        </div>
-
+      
         <div className="container-fluid">
-          <div className="jumbotron jumbotron-fluid justify-content-center">
-            <p className="profileName">Welcome {user.name}</p>
-            <img className="profilePic" src={placeholder} alt="profile" />
-          </div>
+
           <p className="btn btn-info col-12 medBtn">
-            <Link to="/medications"> medications </Link>
+            <Link to="/medications"> Your Medications </Link>
           </p>
           <p className="btn btn-info col-12 appBtn">
-            <Link to="/appointments"> appointments </Link>
+            <Link to="/appointments"> Doctor Appointments </Link>
           </p>
           <p className="btn btn-info col-12 overBtn">
-            <Link to="/overview"> overview </Link>
+            <Link to="/overview"> Medical Overview </Link>
+          </p>
+          <p className="btn btn-info col-12 aboutBtn">
+            <Link to="/about"> Our Mission </Link>
           </p>
         </div>
       </div>
