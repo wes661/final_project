@@ -24,6 +24,10 @@ class Overview extends React.Component {
   }
 
   render() {
+    const { isAuthenticated, user } = this.props.auth;
+
+    const medList = user.meds.map(med => <td>{med.name}</td>);
+
     return (
       // -------- Start HTML here -------- //
 
@@ -132,17 +136,18 @@ class Overview extends React.Component {
               <thead>
                 <tr className="hidden">
                   <th>Day</th>
-                  <th>Time</th>
-                  <th>Location</th>
+                  <th />
+                  <th>Generic</th>
                   <th width="230">Comments</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className={this.state.day === "monday" ? "" : "hidden"}>
                   <td>Monday</td>
-                  <td>This is where the appointment is </td>
+                  {medList}
+                  {/* <td>This is where the appointment is </td>
                   <td>This is the time </td>
-                  <td>This is additional Comments about it </td>
+                  <td>This is additional Comments about it </td> */}
                 </tr>
                 <tr className={this.state.day === "tuesday" ? "" : "hidden"}>
                   <td>Tuesday</td>
