@@ -1,29 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import classnames from "classnames";
-import { loginUser } from "../actions/authactions";
-import { Link } from "react-router-dom";
-import "../css/login.css";
+import { connect } from "react-redux";
+import { registerUser } from "../actions/authactions";
+// import { Link } from "react-router-dom";
+import "../css/signin.css";
 
-class Main extends React.Component {
+class Signup extends React.Component {
   constructor() {
     super();
     this.state = {
+      name: "",
       email: "",
       password: "",
+      password2: "",
       errors: {}
     };
 
-    this.onChange = this.onChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/homepage");
-    }
-
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -38,12 +36,16 @@ class Main extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const userData = {
+    const newUser = {
+      name: this.state.name,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      password2: this.state.password2
     };
-    this.props.loginUser(userData);
+
+    this.props.registerUser(newUser, this.props.history);
   };
+
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/homepage");
@@ -54,11 +56,27 @@ class Main extends React.Component {
 
     return (
       // -------- Start HTML here -------- //
+
       <div className="wrapper">
         <div className="col-6">
           <div className="logbox">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1>Account login</h1>
+              <h1>Sign Up</h1>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.name
+                  })}
+                  placeholder="Name"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                />
+                {errors.name && (
+                  <div className="invalid-feedback">{errors.name}</div>
+                )}
+              </div>
               <div className="form-group">
                 <input
                   type="email"
@@ -90,15 +108,22 @@ class Main extends React.Component {
                   <div className="invalid-feedback">{errors.password}</div>
                 )}
               </div>
-              <input type="submit" className="inputButton" />
-              <div className="text-center">
-                <Link to="/signup" className="btn btn-sm btn-info mr-2">
-                  Sign Up
-                </Link>{" "}
-                {/* <a href=" " className=" ">
-                  forgot password
-                </a> */}
+              <div className="form-group">
+                <input
+                  type="password"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.password2
+                  })}
+                  placeholder="Confirm Password"
+                  name="password2"
+                  value={this.state.password2}
+                  onChange={this.onChange}
+                />
+                {errors.password2 && (
+                  <div className="invalid-feedback">{errors.password2}</div>
+                )}
               </div>
+              <input type="submit" className="inputButton" />
             </form>
           </div>
         </div>
@@ -108,8 +133,8 @@ class Main extends React.Component {
   }
 }
 
-Main.propTypes = {
-  loginUser: PropTypes.func.isRequired,
+Signup.propTypes = {
+  registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -121,5 +146,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { loginUser }
-)(Main);
+  { registerUser }
+)(withRouter(Signup));
