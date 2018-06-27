@@ -18,14 +18,14 @@ class Overview extends React.Component {
     });
   };
 
-  componentWillMount() {
-    if (!this.props.auth.isAuthenticated) {
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated === false) {
       this.props.history.push("/");
     }
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { user } = this.props.auth;
 
     const medList = user.meds.map(med => <td>{med.name}</td>);
 
@@ -40,7 +40,9 @@ class Overview extends React.Component {
             <h1 className="text-center">Welcome Harold!</h1>
             <h1 className="text-center">Allergies: Peanuts, Chocolate, Fun</h1>
             <h1 className="text-center">Medical Alerts: Diabetic</h1>
-            <h1 className="text-center"><Link to="/profile"> View Profile </Link></h1>
+            <h1 className="text-center">
+              <Link to="/profile"> View Profile </Link>
+            </h1>
           </div>
         </div>
         {/* Profile End */}

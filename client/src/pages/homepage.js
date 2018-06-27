@@ -6,20 +6,18 @@ import "../css/homepage.css";
 
 class Homepage extends React.Component {
   componentDidMount() {
-    if (!this.props.auth.isAuthenticated) {
+    if (this.props.auth.isAuthenticated === false) {
       this.props.history.push("/");
     }
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { user } = this.props.auth;
 
     return (
       // -------- Start HTML here -------- //
       <div className="wrapper">
-      
         <div className="container-fluid">
-
           <p className="btn btn-info col-12 medBtn">
             <Link to="/medications"> Your Medications </Link>
           </p>

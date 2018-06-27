@@ -74,6 +74,32 @@ const UserSchema = new Schema({
         required: true
       }
     }
+  ],
+  profile: [
+    {
+      name: {
+        type: String,
+        required: true
+      },
+      address: {
+        type: String,
+        required: true
+      },
+      allergies: {
+        type: String
+      },
+      medicalAlerts: {
+        type: String
+      },
+      emergencyContact: {
+        type: String,
+        required: true
+      },
+      emergencyNumber: {
+        type: String,
+        required: true
+      }
+    }
   ]
 });
 

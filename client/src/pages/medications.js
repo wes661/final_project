@@ -17,7 +17,7 @@ class Medications extends React.Component {
       errors: {}
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +26,7 @@ class Medications extends React.Component {
     }
   }
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { user } = this.props.auth;
 
     const medList = user.meds.map(med => <li>{med.name}</li>);
 

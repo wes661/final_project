@@ -66,7 +66,7 @@ export const logoutUser = () => dispatch => {
 
 export const addAppointment = (userData, history) => dispatch => {
   axios
-    .post("/api/users/meds", userData)
+    .post("/api/users/appointments", userData)
     .then(res => history.push("/"))
     .catch(err =>
       dispatch({
