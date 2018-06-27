@@ -145,9 +145,12 @@ router.post(
     User.findOne({ _id: req.user._id }).then(user => {
       console.log(user);
       const newAppointment = {
-        name: req.body.name,
         where: req.body.where,
-        when: req.body.when
+        date: req.body.date,
+        time: req.body.time,
+        doctor: req.body.doctor,
+        copay: req.body.copay,
+        comments: req.body.comments
       };
 
       //Add to appointment array
@@ -172,10 +175,15 @@ router.post(
     User.findOne({ _id: req.user._id }).then(user => {
       console.log(user);
       const newMed = {
-        name: req.body.name
+        name: req.body.name,
+        day: req.body.day,
+        quantity: req.body.quantity,
+        frequency: req.body.frequency,
+        shape: req.body.shape,
+        color: req.body.color
       };
 
-      //Add to appointment array
+      //Add to meds array
 
       user.meds.unshift(newMed);
 

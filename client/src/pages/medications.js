@@ -5,6 +5,21 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 
 class Medications extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      day: "",
+      quantity: "",
+      frequency: "",
+      shape: "",
+      color: "",
+      errors: {}
+    };
+
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
   componentDidMount() {
     if (!this.props.auth.isAuthenticated) {
       this.props.history.push("/");
@@ -16,7 +31,6 @@ class Medications extends React.Component {
     const medList = user.meds.map(med => <li>{med.name}</li>);
 
     return (
-      // -------- Start HTML here -------- //
       <div className="wrapper">
         <h1>Medication page</h1>
         <ul>{medList}</ul>
@@ -44,7 +58,7 @@ class Medications extends React.Component {
             </tr>
           </tbody>
         </table>
-        // Button trigger modal
+        {/* {Button trigger modal} */}
         <button
           type="button"
           className="btn btn-primary"
@@ -53,7 +67,7 @@ class Medications extends React.Component {
         >
           Launch demo modal
         </button>
-        // Modal
+        {/* {Modal} */}
         <div
           className="modal"
           id="exampleModal"
@@ -92,8 +106,7 @@ class Medications extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        /*{" "}
+        </div>{" "}
         <div>
           <ul className="list-group">
             <li className="list-group-item active">Cras justo odio</li>
@@ -102,7 +115,6 @@ class Medications extends React.Component {
           </ul>
         </div>
       </div>
-      // ------ End HTML here -------------- //
     );
   }
 }
