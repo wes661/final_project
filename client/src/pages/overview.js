@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "../css/overview.css";
 import placeholder from "../pictures/placeholder.jpeg";
 
@@ -39,7 +40,7 @@ class Overview extends React.Component {
             <h1 className="text-center">Welcome Harold!</h1>
             <h1 className="text-center">Allergies: Peanuts, Chocolate, Fun</h1>
             <h1 className="text-center">Medical Alerts: Diabetic</h1>
-            <h1 className="text-center">View Profile</h1>
+            <h1 className="text-center"><Link to="/profile"> View Profile </Link></h1>
           </div>
         </div>
         {/* Profile End */}
