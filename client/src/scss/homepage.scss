@@ -12,11 +12,10 @@ $blueish: #2E294E;
 $greenish: #1B998B;
 $lightgreenish: #C5D86D;
 
-.wrapper {
-    background-image: url("../wallpaper.png");
-    height: 1000px;
-}
-
+// .wrapper {
+//     background-image: url("../wallpaper.png");
+//     height: 800px;
+// }
 .homeHeader{
     @include large;
     font-size: 2em;
@@ -26,33 +25,76 @@ $lightgreenish: #C5D86D;
     margin-bottom: 20px;
     border-bottom: 1px solid black;
 }
+.jumbotron-fluid {
+    margin-top:30px;
+    margin-left: -30px;
+    background-color: $lightgreenish;
+    border: 1px solid black;
+    height: 50px;
+}
+.profilePic {
+    margin-left: 20px;
+    margin-top: -50px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.profileName{
+    font-size: 1em;
+    margin-right: 25%;
+    float: right;
+    
+}
 .medBtn{
     padding: 40px;
     border-radius: 15px;
-    margin-top: 40px;
+    margin-top: 10px;
     background-color: $orangeish;
     box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
         a {
+            @include smaller;
+            font-size: 1.5em;
+            letter-spacing: 2px;
             color:white
         }
 }
 .appBtn {
     padding: 40px;
     border-radius: 15px;
-    margin-top: 40px;
-    background-color: $greenish;
+    margin-top: 30px;
+    background-color: $lightgreenish;
     box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
         a {
+            @include smaller;
+            font-size: 1.5em;
+            letter-spacing: 2px;
             color:white
         }
 }
 .overBtn{
     padding: 40px;
     border-radius: 15px;
-    margin-top: 40px;
+    margin-top: 30px;
+    background-color: $greenish;
+    box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
+        a {
+            @include smaller;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+            color:white
+        }
+}
+.aboutBtn{
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 30px;
     background-color: $blueish;
     box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466);
         a {
+            @include smaller;
+            font-size: 1.5em;
+            letter-spacing: 2px;
             color:white
         }
 }
