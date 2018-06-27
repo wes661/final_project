@@ -1,120 +1,124 @@
 import React from "react";
-import "../css/medication.css";
+import "../css/medications.css";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 
 class Medications extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      day: "",
-      quantity: "",
-      frequency: "",
-      shape: "",
-      color: "",
-      errors: {}
-    };
-
-    // this.onSubmit = this.onSubmit.bind(this);
-  }
-
   componentDidMount() {
     if (!this.props.auth.isAuthenticated) {
       this.props.history.push("/");
     }
   }
-  render() {
-    const { user } = this.props.auth;
+  render(){
+    const { isAuthenticated, user } = this.props.auth;
 
     const medList = user.meds.map(med => <li>{med.name}</li>);
 
     return (
+      // -------- Start HTML here -------- //
       <div className="wrapper">
-        <h1>Medication page</h1>
+       
         <ul>{medList}</ul>
-        <p>
-          <Link to="/homepage"> homepage </Link>
-        </p>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Pill</th>
-              <th>Times taken</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Xanax</td>
-              <td>Evening</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Percocet</td>
-              <td>Morning and Evening</td>
-            </tr>
-          </tbody>
-        </table>
-        {/* {Button trigger modal} */}
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-toggle="modal"
-          data-target="#exampleModal"
-        >
-          Launch demo modal
-        </button>
-        {/* {Modal} */}
-        <div
-          className="modal"
-          id="exampleModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  Modal title
-                </h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
+        
+        <div className="container">
+          {/* <h1>Click the filter icon <small>(<i className="glyphicon glyphicon-filter"></i>)</small></h1> */}
+            <div className="row">
+            <div className="col-md-6">
+              <div className="panel panel-primary">
+                <div className="panel-heading">
+                  <h3 className="panel-title">Current Scripts</h3>
+                  {/* <div className="pull-right">
+                    <span className="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                      <i className="glyphicon glyphicon-filter"></i>
+                    </span>
+                  </div> */}
+                </div>
+                <div className="panel-body">
+                  <input type="text" className="form-control dev-table-filter" id="" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                </div>
+                <table className="table table-hover" id="dev-table">
+                  <thead>
+                    <tr>
+                      
+                      <th>Pill</th>
+                      <th>Quantity</th>
+                      <th>Frequency</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td>rx 1</td>
+                      <td>2</td>
+                      <td>morning</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>rx 2</td>
+                      <td>1</td>
+                      <td>boblahblah</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>rx 3</td>
+                      <td>1</td>
+                      <td>penceyreject</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className="modal-body">...</div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Save changes
-                </button>
+            </div>
+            <div className="col-md-6">
+              <div className="panel panel-success">
+                <div className="panel-heading">
+                  <h3 className="panel-title">Past Scripts</h3>
+                  {/* <div className="pull-right">
+                    <span className="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                      <i className="glyphicon glyphicon-filter"></i>
+                    </span>
+                  </div> */}
+                </div>
+                <div className="panel-body">
+                  <input type="text" className="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filter Tasks" />
+                </div>
+                <table className="table table-hover" id="task-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Script</th>
+                      <th>MMYYYY</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>rx 1</td>
+                      <td>061999</td>
+                      
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>rx 2</td>
+                      <td>061999</td>
+                      
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>rx 3</td>
+                      <td>061999</td>
+                      
+                    </tr>
+                
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        </div>{" "}
-        <div>
-          <ul className="list-group">
-            <li className="list-group-item active">Cras justo odio</li>
-            <li className="list-group-item">Dapibus ac facilisis in</li>
-            <li className="list-group-item">Morbi leo risus</li>
-          </ul>
-        </div>
+        </div>  
       </div>
+      // ------ End HTML here -------------- //
     );
   }
 }
