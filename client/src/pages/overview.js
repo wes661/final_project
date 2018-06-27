@@ -37,7 +37,6 @@ class Overview extends React.Component {
           <img className="profilePic" src={placeholder} alt="profile" />
           <div className="jumbotron jumbotron-fluid">
             <h1 className="text-center">Welcome Harold!</h1>
-
             <h1 className="text-center">Allergies: Peanuts, Chocolate, Fun</h1>
             <h1 className="text-center">Medical Alerts: Diabetic</h1>
             <h1 className="text-center">View Profile</h1>
