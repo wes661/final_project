@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import "../css/homepage.css";
-import placeholder from "../pictures/placeholder.jpeg";
 
 class Homepage extends React.Component {
   componentDidMount() {
