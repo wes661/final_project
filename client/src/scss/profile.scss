@@ -1,0 +1,57 @@
+@import 'reset';
+
+@mixin large{
+    font-family: 'Montserrat', sans-serif;
+}
+@mixin smaller{
+    font-family: 'Neuton', serif;
+}
+$redish: #D7263D;
+$orangeish: #F46036;
+$blueish: #2E294E;
+$greenish: #1B998B;
+$lightgreenish: #C5D86D;
+
+.background {
+    background-size: cover;
+    width: 150%;
+    height:150%;
+    border-radius: 0;
+    margin-top: -25px;
+    overflow: hidden;
+    border-bottom: 5px solid $blueish;
+    box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
+}
+.userName {
+    @include large;
+    position: absolute;
+    left: 40%;
+    top: 42%;
+    font-size: 1.5em;
+    color: white;
+}
+
+.profilePic2 {
+    position: absolute;
+    left: -30%;
+    top: 35%;
+    margin-left: 32%;
+    margin-top: -1%;
+    margin-bottom: 5%;
+    height: 125px;
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
+}
+.card {
+    margin-top: 40px;
+   
+    background-color: transparent;
+    border: none;
+    .list-group{
+        margin-top: 10px;
+         box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
+         border-radius: 20px;
+    }
+}
