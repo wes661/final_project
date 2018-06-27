@@ -1,3 +1,5 @@
+import { truncate } from "fs";
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -38,6 +40,26 @@ const UserSchema = new Schema({
   meds: [
     {
       name: {
+        type: String,
+        required: true
+      },
+      day: {
+        type: String,
+        required: true
+      },
+      quantity: {
+        type: String,
+        required: true
+      },
+      frequency: {
+        type: String,
+        required: true
+      },
+      shape: {
+        type: String,
+        required: true
+      },
+      color: {
         type: String,
         required: true
       }
