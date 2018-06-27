@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "../css/overview.css";
 import placeholder from "../pictures/placeholder.jpeg";
+
+import oval from "../pictures/circle.svg";
 
 class Overview extends React.Component {
   state = {
@@ -17,21 +19,20 @@ class Overview extends React.Component {
   };
 
   componentDidMount() {
-    if (!this.props.auth.isAuthenticated) {
+    if (this.props.auth.isAuthenticated === false) {
       this.props.history.push("/");
     }
   }
 
   render() {
+    const { user } = this.props.auth;
+
+    const medList = user.meds.map(med => <td>{med.name}</td>);
+
     return (
       // -------- Start HTML here -------- //
 
       <div className="wrapper">
-        <div className="container-fluid ovrViewHeader">
-          <div className="page-header">
-            <h1>Overview</h1>
-          </div>
-        </div>
         {/* Profile start */}
         <div className="container-fluid">
           <img className="profilePic" src={placeholder} alt="profile" />
@@ -39,7 +40,9 @@ class Overview extends React.Component {
             <h1 className="text-center">Welcome Harold!</h1>
             <h1 className="text-center">Allergies: Peanuts, Chocolate, Fun</h1>
             <h1 className="text-center">Medical Alerts: Diabetic</h1>
-            <h1 className="text-center">View Profile</h1>
+            <h1 className="text-center">
+              <Link to="/profile"> View Profile </Link>
+            </h1>
           </div>
         </div>
         {/* Profile End */}
@@ -80,46 +83,62 @@ class Overview extends React.Component {
               </thead>
               <tbody>
                 <tr className={this.state.day === "monday" ? "" : "hidden"}>
-                  <td>Monday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it </td>
+                  <td className="day">Monday</td>
+                  <td className="center">
+                    <p>Location: 1234 W. Medical Drive </p>
+                    <p>Appt Time: 2:30 PM</p>
+                    <p>
+                      Reminders: You wont be able to drive home due to anethesia{" "}
+                    </p>
+                  </td>
                 </tr>
                 <tr className={this.state.day === "tuesday" ? "" : "hidden"}>
-                  <td>Tuesday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it</td>
+                  <td className="day">Tuesday</td>
+                  <td className="center">
+                    <p>This is where the appointment is</p>
+                    <p>This is the time </p>
+                    <p>This is additional Comments about it </p>
+                  </td>
                 </tr>
                 <tr className={this.state.day === "wednesday" ? "" : "hidden"}>
-                  <td>Wednesday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it</td>
+                  <td className="day">Wednesday</td>
+                  <td className="center">
+                    <p>This is where the appointment is</p>
+                    <p>This is the time </p>
+                    <p>This is additional Comments about it </p>
+                  </td>
                 </tr>
                 <tr className={this.state.day === "thursday" ? "" : "hidden"}>
-                  <td>Thursday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it</td>
+                  <td className="day">Thursday</td>
+                  <td className="center">
+                    <p>This is where the appointment is</p>
+                    <p>This is the time </p>
+                    <p>This is additional Comments about it </p>
+                  </td>
                 </tr>
                 <tr className={this.state.day === "friday" ? "" : "hidden"}>
-                  <td>Friday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it</td>
+                  <td className="day">Friday</td>
+                  <td className="center">
+                    <p>This is where the appointment is</p>
+                    <p>This is the time </p>
+                    <p>This is additional Comments about it </p>
+                  </td>
                 </tr>
                 <tr className={this.state.day === "saturday" ? "" : "hidden"}>
-                  <td>Saturday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it</td>
+                  <td className="day">Saturday</td>
+                  <td className="center">
+                    <p>This is where the appointment is</p>
+                    <p>This is the time </p>
+                    <p>This is additional Comments about it </p>
+                  </td>
                 </tr>
                 <tr className={this.state.day === "sunday" ? "" : "hidden"}>
-                  <td>Sunday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it</td>
+                  <td className="day">Sunday</td>
+                  <td className="center">
+                    <p>This is where the appointment is</p>
+                    <p>This is the time </p>
+                    <p>This is additional Comments about it </p>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -135,50 +154,253 @@ class Overview extends React.Component {
               <thead>
                 <tr className="hidden">
                   <th>Day</th>
-                  <th>Time</th>
-                  <th>Location</th>
+                  <th />
+                  <th>Generic</th>
                   <th width="230">Comments</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className={this.state.day === "monday" ? "" : "hidden"}>
-                  <td>Monday</td>
-                  <td>This is where the appointment is </td>
-                  <td>This is the time </td>
-                  <td>This is additional Comments about it </td>
+                  <td className="day">Monday</td>
+
+                  <td className="center">
+                    <p>Morning</p>
+                    <div className="pillBox">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="20"
+                        viewBox="0 0 22 20"
+                      >
+                        <path
+                          fill="brown"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="22"
+                        viewBox="0 0 20 22"
+                      >
+                        <path
+                          fill="pink"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                    </div>
+                  </td>
+                  <td className="center">
+                    <p>Midday</p>
+                    <div className="pillBox">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="20"
+                        viewBox="0 0 22 20"
+                      >
+                        <path
+                          fill="brown"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="22"
+                        viewBox="0 0 20 22"
+                      >
+                        <path
+                          fill="pink"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                    </div>
+                  </td>
+                  <td className="center">
+                    <p>Evening</p>
+                    <div className="pillBox">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="20"
+                        viewBox="0 0 22 20"
+                      >
+                        <path
+                          fill="yellow"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="22"
+                        viewBox="0 0 20 22"
+                      >
+                        <path
+                          fill="purple"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                    </div>
+                  </td>
                 </tr>
                 <tr className={this.state.day === "tuesday" ? "" : "hidden"}>
-                  <td>Tuesday</td>
+                  <td className="day">Tuesday</td>
                   <td>This is where the appointment is </td>
                   <td>This is the time </td>
                   <td>This is additional Comments about it </td>
                 </tr>
                 <tr className={this.state.day === "wednesday" ? "" : "hidden"}>
-                  <td>Wednesday</td>
+                  <td className="day">Wednesday</td>
                   <td>This is where the appointment is </td>
                   <td>This is the time </td>
                   <td>This is additional Comments about it </td>
                 </tr>
                 <tr className={this.state.day === "thursday" ? "" : "hidden"}>
-                  <td>Thursday</td>
+                  <td className="day">hursday</td>
                   <td>This is where the appointment is </td>
                   <td>This is the time </td>
                   <td>This is additional Comments about it </td>
                 </tr>
                 <tr className={this.state.day === "friday" ? "" : "hidden"}>
-                  <td>Friday</td>
+                  <td className="day">Friday</td>
                   <td>This is where the appointment is </td>
                   <td>This is the time </td>
                   <td>This is additional Comments about it </td>
                 </tr>
                 <tr className={this.state.day === "saturday" ? "" : "hidden"}>
-                  <td>Saturday</td>
+                  <td className="day">Saturday</td>
                   <td>This is where the appointment is </td>
                   <td>This is the time </td>
                   <td>This is additional Comments about it </td>
                 </tr>
                 <tr className={this.state.day === "sunday" ? "" : "hidden"}>
-                  <td>Sunday</td>
+                  <td className="day">Sunday</td>
                   <td>This is where the appointment is </td>
                   <td>This is the time </td>
                   <td>This is additional Comments about it </td>

@@ -14,6 +14,8 @@ import Medications from "./pages/medications";
 import Overview from "./pages/overview";
 import background from "./pictures/wallpaper.png";
 import Navbar from "./components/Navbar";
+import About from "./pages/about";
+import Profile from "./pages/profile";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -43,6 +45,8 @@ class App extends React.Component {
             <Route exact path="/homepage" component={Homepage} />
             <Route path="/medications" component={Medications} />
             <Route path="/overview" component={Overview} />
+            <Route path="/about" component={About} />
+            <Route path="/profile" component={Profile} />
           </div>
         </Router>
       </Provider>

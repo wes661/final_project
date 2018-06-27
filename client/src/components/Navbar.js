@@ -25,6 +25,9 @@ class Navbar extends Component {
               Logout
             </Link>
           </a>
+          <Link className="nav-link" to="/homepage">
+            Home Page
+            </Link>
         </li>
       </ul>
     );

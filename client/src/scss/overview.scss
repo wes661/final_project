@@ -46,6 +46,7 @@ $padding: 10px;
     border-radius: 20px;
     box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
 }
+
 .profileName{
     font-size: 1em;
 }
@@ -64,7 +65,6 @@ img {
    height: $imageSmall;
    width: $imageSmall;
 }
-
 .table-users {
    border: 1px solid darken($blueish, 5%);
    border-radius: $borderRadius;
@@ -132,10 +132,7 @@ table {
          }
       }
 
-      &:nth-child(2):before { content: 'Location:'; }
-      &:nth-child(3):before { content: 'Time:'; }
-      &:nth-child(4):before { content: 'Comments:'; }
-      &:nth-child(5):before { content: 'Comments:'; }
+
    }
    
    tr {
@@ -147,6 +144,9 @@ table {
   display: none;
 }
 @media screen and (max-width: 500px) {
+    .day {
+        font-size: 1.5em;
+    }
    .header {
         @include large;
         background-color: transparent;
@@ -156,7 +156,23 @@ table {
         padding: 0;
         text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
    }
-   
+   .center {
+       @include smaller;
+       margin-left: 12%!important;
+       width: 260px !important;
+       p {
+           text-align: center;
+       }
+       .pillBox {
+           text-align: center;
+           svg {
+               margin-top: 10px;
+               &:not(:first-child){
+                    margin-left:10px
+               }
+           }
+       }
+   }
    img {
       border: 3px solid;
       border-color: lighten($blueish, 50%);
@@ -192,6 +208,7 @@ table {
    }
    
    tr {
+       @include smaller;
       background-color: white !important;
       border: 1px solid lighten($blueish, 20%);
       border-radius: $borderRadius;

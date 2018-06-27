@@ -61,3 +61,17 @@ export const logoutUser = () => dispatch => {
   // Set current user to {} which sets authenticated to false
   dispatch(setCurrentUser({}));
 };
+
+// Add  to user data
+
+export const addAppointment = (userData, history) => dispatch => {
+  axios
+    .post("/api/users/appointments", userData)
+    .then(res => history.push("/"))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};

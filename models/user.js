@@ -21,23 +21,81 @@ const UserSchema = new Schema({
   },
   appointments: [
     {
-      name: {
-        type: String,
-        required: true
-      },
       where: {
         type: String,
         required: true
       },
-      when: {
+      date: {
         type: Date,
         required: true
+      },
+      time: {
+        type: String,
+        required: true
+      },
+      doctor: {
+        type: String,
+        required: true
+      },
+      copay: {
+        type: String,
+        required: false
+      },
+      comments: {
+        type: String,
+        required: false
       }
     }
   ],
   meds: [
     {
       name: {
+        type: String,
+        required: true
+      },
+      day: {
+        type: String,
+        required: true
+      },
+      quantity: {
+        type: String,
+        required: true
+      },
+      frequency: {
+        type: String,
+        required: true
+      },
+      shape: {
+        type: String,
+        required: true
+      },
+      color: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  profile: [
+    {
+      name: {
+        type: String,
+        required: true
+      },
+      address: {
+        type: String,
+        required: true
+      },
+      allergies: {
+        type: String
+      },
+      medicalAlerts: {
+        type: String
+      },
+      emergencyContact: {
+        type: String,
+        required: true
+      },
+      emergencyNumber: {
         type: String,
         required: true
       }
