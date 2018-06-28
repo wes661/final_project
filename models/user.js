@@ -1,5 +1,3 @@
-
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -23,17 +21,29 @@ const UserSchema = new Schema({
   },
   appointments: [
     {
-      name: {
-        type: String,
-        required: true
-      },
       where: {
         type: String,
         required: true
       },
-      when: {
+      date: {
         type: Date,
         required: true
+      },
+      time: {
+        type: String,
+        required: true
+      },
+      doctor: {
+        type: String,
+        required: true
+      },
+      copay: {
+        type: String,
+        required: false
+      },
+      comments: {
+        type: String,
+        required: false
       }
     }
   ],
@@ -60,6 +70,32 @@ const UserSchema = new Schema({
         required: true
       },
       color: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  profile: [
+    {
+      name: {
+        type: String,
+        required: true
+      },
+      address: {
+        type: String,
+        required: true
+      },
+      allergies: {
+        type: String
+      },
+      medicalAlerts: {
+        type: String
+      },
+      emergencyContact: {
+        type: String,
+        required: true
+      },
+      emergencyNumber: {
         type: String,
         required: true
       }
