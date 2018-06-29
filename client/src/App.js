@@ -16,6 +16,7 @@ import background from "./pictures/wallpaper.png";
 import Navbar from "./components/Navbar";
 import About from "./pages/about";
 import Profile from "./pages/profile";
+import EditProfile from "./pages/editProfile";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -47,6 +48,7 @@ class App extends React.Component {
             <Route path="/overview" component={Overview} />
             <Route path="/about" component={About} />
             <Route path="/profile" component={Profile} />
+            <Route path="/editProfile" component={EditProfile} />
           </div>
         </Router>
       </Provider>
