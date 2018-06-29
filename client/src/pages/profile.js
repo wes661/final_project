@@ -22,6 +22,9 @@ class Profile extends React.Component {
         <img className="background" src={background} alt="wallpaper" />
         <img className="profilePic2" src={placeholder} alt="profile" />
         <h1 className="userName"> Welcome Harold </h1>
+        <p className="profileEdit">
+          <Link to="/editProfile"> Edit Profile </Link>
+        </p>
         <div className="container-fluid">
           <div className="card">
             <ul className="list-group">
