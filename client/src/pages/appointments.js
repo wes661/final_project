@@ -11,18 +11,9 @@ class Appointments extends React.Component {
     this.state = {
       date: new Date(),
       open: false,
-      events: [
-        {
-          id: 1,
-          date: 2,
-          year: 2018,
-          month: 2,
-          title: "Holy"
-        }
-      ]
     };
   }
-  onOpenModal = () => {
+  onOpenModal = (date) => {
     this.setState({ open: true });
   };
 
@@ -42,13 +33,15 @@ class Appointments extends React.Component {
     return (
       // -------- Start HTML here -------- //
       <div className="calendar">
-      
+
         <CalendarLayout
           date={this.state.date}
           onOpenModal={this.onOpenModal}
           onDateChange={this.onDateChange}
         />
-        <AppModal open={this.state.open} onCloseModal={this.onCloseModal} />
+        <AppModal open={this.state.open}
+          date={this.state.date}
+          onCloseModal={this.onCloseModal} />
       </div>
       // ------ End HTML here -------------- //
     );

@@ -5,6 +5,13 @@ import './custom-animation.css';
 
 export default class AppModal extends React.Component {
     render() {
+        const { date } = this.props
+        const { where } = this.props
+        const { doctor } = this.props
+        const { time } = this.props
+        const { copay } = this.props
+        const { comments } = this.props
+
         return (
             <Modal
                 open={this.props.open}
@@ -21,7 +28,14 @@ export default class AppModal extends React.Component {
 
             >
 
-                <Form />
+                <Form
+                    date={date}
+                    where={where}
+                    doctor={doctor}
+                    time={time}
+                    copay={copay}
+                    comments={comments}
+                />
             </Modal>
 
         );
