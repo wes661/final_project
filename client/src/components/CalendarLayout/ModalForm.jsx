@@ -1,61 +1,113 @@
 import React from 'react';
 
-const inputParsers = {
-  uppercase(input) {
-    return input.toUpperCase();
-  },
-  number(input) {
-    return parseFloat(input);
-  },
-};
-
 export default class Form extends React.Component {
+
   constructor() {
     super();
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      date: "",
+      where: "",
+      doctor: "",
+      time: "",
+      copay: "",
+      comments: "",
+    };
+
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
+  onChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    })
+    // console.log(value);
+  };
 
-    for (let name of data.keys()) {
-      const input = form.elements[name];
-      const parserName = input.dataset.parse;
+  onSubmit = (e) => {
+    e.preventDefault();
+    const newAppointment = {
+      date: this.state.date,
+      where: this.state.where,
+      doctor: this.state.doctor,
+      time: this.state.time,
+      copay: this.state.copay,
+      comments: this.state.comments
+    };
+    this.props.addAppointment(newAppointment, this.props.history);
+  };
 
-      if (parserName) {
-        const parser = inputParsers[parserName];
-        const parsedValue = parser(data.get(name));
-        data.set(name, parsedValue);
-      }
-    }
-  }
+
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder=""
-          name="visitReason"
-          type1="text"
-        />
+      <form onSubmit={this.state.onSubmit} >
+        <label>
+          Date of appointment:
+          <input
+            type="text"
+            name="date"
+            value={this.props.date}
+            onChange={this.onChange}
+          />
+        </label>
         <br />
-        <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder=""
-          name="whatPhysician"
-          type2="text"
-        />
         <br />
-        <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder=""
-          name="whatTime"
-          type3="text"
-        />
+        <label>
+          Where is your appointment:
+          <input
+            type="text"
+            name="where"
+            value={this.state.where}
+            onChange={this.onChange}
+          />
+        </label>
         <br />
-        <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder=" "
-          name="coPay"
-          type4="text"
-        />
         <br />
-        <button className="btn btn-outline-dark">Save appointment</button>
+        <label>
+          What is your physicians name:
+            <input
+            type="text"
+            name="doctor"
+            value={this.state.doctor}
+            onChange={this.onChange}
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Do you know the time:
+            <input
+            type="text"
+            name="time"
+            value={this.state.time}
+            onChange={this.onChange}
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Is there a copay:
+            <input
+            type="text"
+            name="copay"
+            value={this.state.copay}
+            onChange={this.onChange}
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Additional information:
+          <textarea
+            name="comments"
+            value={this.state.comments}
+            onChange={this.onChange}
+          />
+        </label>
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
       </form>
     );
   }
