@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/medications.css";
+import "../css/medication.css";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
@@ -135,7 +135,7 @@ class Medications extends React.Component {
                       <h3 className="panel-title">Past Scripts</h3>
                     </div>
                     
-                    <table className="table table-sm-responsive task-table" id="">
+                    <table className="table table-sm-responsive task-table">
                       <thead>
                         <tr>
                           <th>#</th>
