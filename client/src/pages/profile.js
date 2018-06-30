@@ -25,6 +25,9 @@ class Profile extends React.Component {
         <p className="profileEdit">
           <Link to="/editProfile"> Edit Profile </Link>
         </p>
+        <p className="back">
+          <Link to="/overview"> Back to Overview </Link>
+        </p>
         <div className="container-fluid">
           <div className="card">
             <ul className="list-group">

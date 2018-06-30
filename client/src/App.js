@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser } from "./actions/authactions";
@@ -18,6 +18,7 @@ import About from "./pages/about";
 import Profile from "./pages/profile";
 import EditProfile from "./pages/editProfile";
 
+const SomeComponent = withRouter(props => <Navbar {...props} />);
 // Check for token
 if (localStorage.jwtToken) {
   // Set auth header auth
@@ -39,7 +40,7 @@ class App extends React.Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Navbar />
+            <SomeComponent />
             <Route exact path="/" component={Main} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/appointments" component={Appointments} />

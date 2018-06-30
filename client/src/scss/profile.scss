@@ -20,13 +20,15 @@ $lightgreenish: #C5D86D;
     margin-top: -25px;
     overflow: none;
     border-bottom: 5px solid $blueish;
-    box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
+    box-shadow: 1px 10px 37px 18px rgba(0,0,0,0.75);
+
+
 }
 .userName {
     @include large;
     position: absolute;
     left: 40%;
-    top: 29%;
+    top: 30%;
     font-size: 1.5em;
     color: white;
 }
@@ -34,7 +36,7 @@ $lightgreenish: #C5D86D;
 .profilePic2 {
     position: absolute;
     left: -30%;
-    top: 20%;
+    top: 25%;
     margin-left: 32%;
     margin-top: -1%;
     margin-bottom: 5%;
@@ -45,12 +47,11 @@ $lightgreenish: #C5D86D;
     box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
 }
 .card {
-    margin-top: 40px;
-   
+    margin-top: 50px;
     background-color: transparent;
     border: none;
     .list-group{
-        margin-top: 10px;
+        margin-top: 20px;
          box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
          border-radius: 20px;
     }
@@ -58,15 +59,28 @@ $lightgreenish: #C5D86D;
 .profileEdit {
     margin-left: 150px;
     z-index: 10;
+    a{
+        color: white !important;
+        padding-right: 10px;
+        border-right: 2px solid white;
+    }
+    
+}
+.back {
+    margin-left: 65%;
+    margin-top: -16px;
+        a{
+        color: white !important;
+    }
 }
 .form-inline {
-    margin-top: 35px;
+   margin-top: 60px;
     .form-control {
         box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
-        margin-top: 15px;
+        margin-top: 20px;
     }
     .btn {
-        margin-top: 15px;
+        margin-top: 20px;
         box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
     }
 }
