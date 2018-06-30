@@ -9,29 +9,51 @@
 
 $orangeish: #F46036;
 
-.wrapper{
-   .form-control,.table {
-       width:100%
-   } 
-}
-.row{
-    margin-left: 15px;
-}
+// .wrapper{
+//    .form-control,.table {
+//        width:100%
+//    } 
+// }
+// .row{
+//     margin-left: 15px;
+// }
 .panel-title{
-     width:100px;
-    position:center;
+   
+    
+    @include large;
+    font-size: 20px;
+
+}
+.scriptNom{
+    background-color: $orangeish !important;
+    @include large;
+    font-size:15px;
+
+    .th{
+        background-color: rgba(244, 95, 54, 0) !important;
+    }
+}
+.btn{
+    background-color: $orangeish;
+    @include large;
+    margin-bottom: 10px;
 }
 
-
-@media only screen and (max-width: 600px) {
-  
-   .h3{
-       @include smaller;
-        font-size: 60px;
-    }
-   td{
-       background-color: $orangeish;
-   }
+.current{
+    width:300px;
+}
+.past{
+    width:300px;
+}
+.modal-content{
+    width:252px;
+    
+        .addBtn{
+            @include large;
+            font-size: 20px;
+        }
+}
+// @media only screen and (max-width: 600px) 
 
    .form-control{
        width:186px;
@@ -61,5 +83,35 @@ $orangeish: #F46036;
         display: none;
     }
     
-}
+
 // https://bootsnipp.com/snippets/featured/panel-tables-with-filter
+// scroll
+a {
+    display: inline-block;
+    width: 50px;
+    text-decoration: none;
+  }
+  nav, scroll-container {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  nav {
+    width: 300px;
+    padding: 5px;
+    border: 1px solid black;
+  }
+  scroll-container {
+    display: block;
+    width: 300px;
+    height: 200px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+  scroll-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 25px;
+  }

@@ -27,39 +27,103 @@ class Medications extends React.Component {
             <div className = "col current">
               <div className = "panel panel-primary">
                 <div className = "panel-heading">
+                  <button type="button" className = "btn btn-info btn-sm modalBtn" data-toggle="modal" data-target="#myModal">New Script</button>
+                   <br></br>
                   <h3 className = "panel-title">Current Scripts</h3>
-                  <button type="button" className = "btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">New Script</button>
+                 
+                  {/* <button type="button" className = "btn btn-info btn-sm modalBtn" data-toggle="modal" data-target="#myModal">New Script</button> */}
                 </div>
                 
                 {/* <!-- Modal --> */}
-                <div id="myModal" className = "modal fade" role="dialog">
+                <div id="myModal" className = "modal fade " role="dialog">
                   <div className = "modal-dialog">
 
                     {/* <!-- Modal content--> */}
                     <div className = "modal-content">
                       <div className = "modal-header">
-                        <h4 className ="modal-title">Add Script</h4>
+                        <h4 className ="panel-title">Add Script</h4>
                       </div>
                       <div className = "modal-body">
-                        <form>
-                          <div className = "form-group">
-                            <label for="formGroupExampleInput">Name</label>
-                            <input type="text" className = "form-control formGroupExampleInput" id="" placeholder="Example input"></input>
+                        <div className = "form-group">
+                          <input type="text" className = "form-control formGroupExampleInput" id="" placeholder="Name"></input>
+                        </div>
+                        <div className="input-group">
+                          <div className="input-group-prepend">
+                            <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shape</button>
+                            <div className="dropdown-menu">
+                              <a className="dropdown-item" href="#">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="22"
+                                  height="20"
+                                  viewBox="0 0 22 20"
+                                >
+                                  <path
+                                    fill="brown"
+                                    fill-rule="evenodd"
+                                    stroke="#9B9B9B"
+                                    d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
+                                  />
+                                </svg>
+                              </a>
+                              <a className="dropdown-item" href="#">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="20"
+                                  height="22"
+                                  viewBox="0 0 20 22"
+                                >
+                                  <path
+                                    fill="pink"
+                                    fill-rule="evenodd"
+                                    stroke="#9B9B9B"
+                                    d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
+                                  />
+                                </svg>
+                              </a>
+                              <a className="dropdown-item" href="#">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="22"
+                                  height="22"
+                                  viewBox="0 0 22 22"
+                                >
+                                  <circle
+                                    cx="16"
+                                    cy="51"
+                                    r="10"
+                                    fill="red"
+                                    fill-rule="evenodd"
+                                    stroke="#9B9B9B"
+                                    transform="translate(-5 -40)"
+                                  />
+                                </svg>
+                              </a>
+                
+                             
                           </div>
-                          <div className = "form-group">
-                            <label for="formGroupExampleInput2">Shape</label>
-                            <input type="text" className = "form-control formGroupExampleInput2" id="" placeholder="Another input"></input>
-                          </div>
-                          <div className = "form-group">
-                            <label for="formGroupExampleInput2">Quantity</label>
-                            <input type="text" className = "form-control formGroupExampleInput2" id="" placeholder="Another input"></input>
-                          </div>
-                          <div className = "form-group">
-                            <label for="formGroupExampleInput2">Frequancy  </label>
-                            <input type="text" className = "form-control formGroupExampleInput2" id="" placeholder="Another input"></input>
-                          </div>
-                          <input type="submit" className="addBtn" />
-                        </form>
+
+                          <div className="input-group">
+                            <div className="input-group-prepend">
+                                <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                              <div className="dropdown-menu">
+                                <a className="dropdown-item" href="#">
+                                  <input type="radio" aria-label="Radio button for following text input"> Morning</input>
+                                </a>
+                                <a className="dropdown-item" href="#">
+                                  <input type="radio" aria-label="Radio button for following text input">Noon</input>
+                                </a>
+                                <a className="dropdown-item" href="#">
+                                  <input type="radio" aria-label="Radio button for following text input">Evening</input>
+                                </a>
+                                <a className="dropdown-item" href="#">
+                                  <input type="radio" aria-label="Radio button for following text input">Night</input>
+                                </a>
+                                
+                              </div>
+                            </div>                         
+                              <input type="text" className="form-control" aria-label="Text input with dropdown button"></input>
+                          <input type="text" className="form-control" aria-label="Text input with dropdown button"></input>
                       </div>
                       <div className = "modal-footer">
                         <button type="button" className = "btn btn-default" data-dismiss="modal">Close</button>
@@ -70,7 +134,7 @@ class Medications extends React.Component {
                 </div>
 
                 {/* <div>
-                  <table className="table">
+                  <table className="table table-sm-responsive">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -93,32 +157,25 @@ class Medications extends React.Component {
                   </table>
                 </div> */}
 
-  
+                  <br></br>
                 <table className="table table-sm-responsive dev-table">
-                  <thead>
-                    <tr>
-                      
-                      <th>Pill</th>
-                      <th>Quantity</th>
-                      <th>Frequency</th>
-                    </tr>
-                  </thead>
+              
                   <tbody>
                     <tr>
                       
-                      <td>rx 1</td>
+                      <td className="scriptNom">rx 1</td>
                       <td>2</td>
                       <td>morning</td>
                     </tr>
                     <tr>
                       
-                      <td>rx 2</td>
+                      <td className="scriptNom">rx 2</td>
                       <td>1</td>
                       <td>boblahblah</td>
                     </tr>
                     <tr>
                       
-                      <td>rx 3</td>
+                      <td className="scriptNom">rx 3</td>
                       <td>1</td>
                       <td>penceyreject</td>
                     </tr>
@@ -134,38 +191,28 @@ class Medications extends React.Component {
                     <div className="panel-heading">
                       <h3 className="panel-title">Past Scripts</h3>
                     </div>
-                    
-                    <table className="table table-sm-responsive task-table">
-                      <thead>
+          
+                    <scroll-container>
+                      <scroll-page id="page-1">
                         <tr>
-                          <th>#</th>
-                          <th>Script</th>
-                          <th>MMYYYY</th>
-                          
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>rx 1</td>
-                          <td>061999</td>
-                          
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>rx 2</td>
-                          <td>061999</td>
-                          
-                        </tr>
-                        <tr>
-                          <td>3</td>
                           <td>rx 3</td>
-                          <td>061999</td>
-                          
+                          <td>06/1999</td>
                         </tr>
-                    
-                      </tbody>
-                    </table>
+                      </scroll-page>
+                      <scroll-page id="page-2">
+                        <tr>
+                          <td>rx 2</td>
+                          <td>06/1999</td>
+                        </tr>               
+                      </scroll-page>
+                      <scroll-page id="page-3">
+                      <tr>
+                          <td>rx 1</td>
+                          <td>06/1999</td>
+                        </tr>
+                      </scroll-page>
+                    </scroll-container>
+
                   </div>
                 </div>
               </div>
