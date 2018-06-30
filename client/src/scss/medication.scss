@@ -9,24 +9,57 @@
 
 $orangeish: #F46036;
 
-
+.wrapper{
+   .form-control,.table {
+       width:100%
+   } 
+}
 .row{
-    margin-top:40px;
-    padding: 0 10px;
+    margin-left: 15px;
 }
-.clickable{
-    cursor: pointer;   
-}
-
-.panel-heading div {
-    margin-top: -18px;
-    font-size: 15px;
-}
-.panel-heading div span{
-    margin-left:5px;
-}
-.panel-body{
-    display: none;
+.panel-title{
+     width:100px;
+    position:center;
 }
 
+
+@media only screen and (max-width: 600px) {
+  
+   .h3{
+       @include smaller;
+        font-size: 60px;
+    }
+   td{
+       background-color: $orangeish;
+   }
+
+   .form-control{
+       width:186px;
+
+   }
+
+
+   .table-hover{
+       background-color: $orangeish;
+   }
+    .row{
+        margin-top:40px;
+        padding: 0 10px;
+    }
+    .clickable{
+        cursor: pointer;   
+    }
+
+    .panel-heading div {
+        margin-top: -18px;
+        font-size: 15px;
+    }
+    .panel-heading div span{
+        margin-left:5px;
+    }
+    .panel-body{
+        display: none;
+    }
+    
+}
 // https://bootsnipp.com/snippets/featured/panel-tables-with-filter
