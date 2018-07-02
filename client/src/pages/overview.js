@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "../css/overview.css";
 import placeholder from "../pictures/placeholder.jpeg";
+import background from "../pictures/profilebackground.png";
 
 import oval from "../pictures/circle.svg";
 
@@ -34,17 +35,15 @@ class Overview extends React.Component {
 
       <div className="wrapper">
         {/* Profile start */}
-        <div className="container-fluid">
-          <img className="profilePic" src={placeholder} alt="profile" />
-          <div className="jumbotron jumbotron-fluid">
-            <h1 className="text-center">Welcome Harold!</h1>
-            <h1 className="text-center">Allergies: Peanuts, Chocolate, Fun</h1>
-            <h1 className="text-center">Medical Alerts: Diabetic</h1>
-            <h1 className="text-center">
-              <Link to="/profile"> View Profile </Link>
-            </h1>
-          </div>
-        </div>
+        <img className="background" src={background} alt="wallpaper" />
+        <img className="profilePic" src={placeholder} alt="profile" />
+        <h1 className="userName"> Welcome Harold </h1>
+        <p className="profileEdit">
+          <Link to="/Profile"> View Profile </Link>
+        </p>
+        <p className="back2">
+          <Link to="/homepage"> Back to Home </Link>
+        </p>
         {/* Profile End */}
         {/* Appointment Div Start */}
         <div className="container-fluid">
