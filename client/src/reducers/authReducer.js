@@ -3,7 +3,8 @@ import isEmpty from "../validation/is-empty";
 
 const initialState = {
   isAuthenticated: false,
-  user: {}
+  user: {},
+  loading: false
 };
 
 export default function(state = initialState, action) {

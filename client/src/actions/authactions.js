@@ -62,12 +62,26 @@ export const logoutUser = () => dispatch => {
   dispatch(setCurrentUser({}));
 };
 
-// Add  to user data
+// Add  to user appointment
 
-export const addAppointment = (userData, history) => dispatch => {
+export const addAppointment = (appointmentData, history) => dispatch => {
   axios
-    .post("/api/users/appointments", userData)
-    .then(res => history.push("/"))
+    .post("/api/users/appointments", appointmentData)
+    .then(res => {
+      history.push("/homepage");
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+export const addMed = (userData, history) => dispatch => {
+  axios
+    .post("/api/users/meds", userData)
+    .then(res => history.push("/medications"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

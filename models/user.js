@@ -53,10 +53,12 @@ const UserSchema = new Schema({
         type: String,
         required: true
       },
-      day: {
-        type: String,
-        required: true
-      },
+      days: [
+        {
+          type: Number,
+          required: true
+        }
+      ],
       quantity: {
         type: String,
         required: true
@@ -78,12 +80,10 @@ const UserSchema = new Schema({
   profile: [
     {
       name: {
-        type: String,
-        required: true
+        type: String
       },
       address: {
-        type: String,
-        required: true
+        type: String
       },
       allergies: {
         type: String
@@ -92,12 +92,10 @@ const UserSchema = new Schema({
         type: String
       },
       emergencyContact: {
-        type: String,
-        required: true
+        type: String
       },
       emergencyNumber: {
-        type: String,
-        required: true
+        type: String
       }
     }
   ]
