@@ -135,30 +135,39 @@ router.post(
   "/appointments",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateAppointmentInput(req.body);
+    // const { errors, isValid } = validateAppointmentInput(req.body);
 
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
     //Get fields
-    console.log(req.user);
-    User.findOne({ _id: req.user._id }).then(user => {
-      console.log(user);
-      const newAppointment = {
-        where: req.body.where,
-        date: req.body.date,
-        time: req.body.time,
-        doctor: req.body.doctor,
-        copay: req.body.copay,
-        comments: req.body.comments
-      };
+    // console.log(req.user);
+    User.findOne({ _id: req.user._id })
+      .then(user => {
+        // console.log(user);
+        const newAppointment = {
+          where: req.body.where,
+          date: req.body.date,
+          time: req.body.time,
+          doctor: req.body.doctor,
+          copay: req.body.copay,
+          comments: req.body.comments
+        };
 
-      //Add to appointment array
+        //Add to appointment array
 
-      user.appointments.unshift(newAppointment);
+        user.appointments.unshift(newAppointment);
 
-      user.save().then((user = res.json(user)));
-    });
+        user
+          .save()
+          .then((user = res.json(user)))
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 );
 
@@ -176,7 +185,7 @@ router.post(
       console.log(user);
       const newMed = {
         name: req.body.name,
-        day: req.body.day,
+        day: req.body.days,
         quantity: req.body.quantity,
         frequency: req.body.frequency,
         shape: req.body.shape,

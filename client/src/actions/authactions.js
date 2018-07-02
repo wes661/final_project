@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
-import { GET_ERRORS, SET_CURRENT_USER } from "./types";
+import { GET_ERRORS, SET_CURRENT_USER, GET_USER_DATA } from "./types";
 
 // Register User
 
@@ -51,6 +51,24 @@ export const setCurrentUser = decoded => {
   };
 };
 
+//Get Up to date User info
+export const getUserData = () => dispatch => {
+  axios
+    .get("/api/users/current")
+    .then(res =>
+      dispatch({
+        type: GET_USER_DATA,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Log user out
 
 export const logoutUser = () => dispatch => {
@@ -62,12 +80,26 @@ export const logoutUser = () => dispatch => {
   dispatch(setCurrentUser({}));
 };
 
-// Add  to user data
+// Add  to user appointment
 
-export const addAppointment = (userData, history) => dispatch => {
+export const addAppointment = (appointmentData, history) => dispatch => {
   axios
-    .post("/api/users/appointments", userData)
-    .then(res => history.push("/"))
+    .post("/api/users/appointments", appointmentData)
+    .then(res => {
+      history.push("/homepage");
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+export const addMed = (userData, history) => dispatch => {
+  axios
+    .post("/api/users/meds", userData)
+    .then(res => history.push("/medications"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
