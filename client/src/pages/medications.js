@@ -3,6 +3,7 @@ import "../css/medication.css";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { getUserData } from "../actions/authactions";
 
 class Medications extends React.Component {
   constructor() {
@@ -20,11 +21,12 @@ class Medications extends React.Component {
     // this.onSubmit = this.onSubmit.bind(this);
   }
 
-  // componentWillMount() {
-  //   if (!this.props.auth.isAuthenticated) {
-  //     this.props.history.push("/");
-  //   }
-  // }
+  componentWillMount() {
+    this.props.getUserData();
+    if (!this.props.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
+  }
   render() {
     const { user } = this.props.auth;
 
@@ -123,6 +125,7 @@ class Medications extends React.Component {
 }
 
 Medications.propTypes = {
+  getUserData: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -130,4 +133,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Medications);
+export default connect(
+  mapStateToProps,
+  { getUserData }
+)(Medications);

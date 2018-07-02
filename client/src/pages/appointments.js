@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { getUserData } from "../actions/authactions";
 import CalendarLayout from "../components/CalendarLayout/CalendarLayout";
 import AppModal from "../components/CalendarLayout/Modal";
 import "../css/appointments.css";
@@ -24,6 +25,7 @@ class Appointments extends React.Component {
   onDateChange = date => this.setState({ date });
 
   componentDidMount() {
+    this.props.getUserData();
     if (!this.props.auth.isAuthenticated) {
       this.props.history.push("/");
     }
@@ -50,6 +52,7 @@ class Appointments extends React.Component {
 }
 
 Appointments.propTypes = {
+  getUserData: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -57,4 +60,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Appointments);
+export default connect(
+  mapStateToProps,
+  { getUserData }
+)(Appointments);

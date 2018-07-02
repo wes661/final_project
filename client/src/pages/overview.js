@@ -2,6 +2,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getUserData } from "../actions/authactions";
 import "../css/overview.css";
 import placeholder from "../pictures/placeholder.jpeg";
 import background from "../pictures/profilebackground.png";
@@ -20,6 +21,7 @@ class Overview extends React.Component {
   };
 
   componentDidMount() {
+    this.props.getUserData();
     if (this.props.auth.isAuthenticated === false) {
       this.props.history.push("/");
     }
@@ -416,6 +418,7 @@ class Overview extends React.Component {
 }
 
 Overview.propTypes = {
+  getUserData: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -423,4 +426,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Overview);
+export default connect(
+  mapStateToProps,
+  { getUserData }
+)(Overview);
