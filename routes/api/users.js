@@ -39,7 +39,8 @@ router.post("/register", (req, res) => {
         email: req.body.email,
         password: req.body.password,
         appointments: [],
-        meds: []
+        meds: [],
+        profile: []
       });
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -86,7 +87,8 @@ router.post("/login", (req, res) => {
           id: user.id,
           name: user.name,
           meds: user.meds,
-          appointments: user.appointments
+          appointments: user.appointments,
+          profile: user.profile
         }; //Create JWT payload
 
         //Sign Token
@@ -122,7 +124,8 @@ router.get(
       name: req.user.name,
       email: req.user.email,
       appointments: req.user.appointments,
-      meds: req.user.meds
+      meds: req.user.meds,
+      profile: req.user.profile
     });
   }
 );
@@ -195,6 +198,35 @@ router.post(
       //Add to meds array
 
       user.meds.unshift(newMed);
+
+      user.save().then((user = res.json(user)));
+    });
+  }
+);
+
+//@route  POST api/users/profile
+//@desc   Post new profile
+//@access Private
+
+router.post(
+  "/profile",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    //Get fields
+
+    User.findOne({ _id: req.user._id }).then(user => {
+      const newProfile = {
+        name: req.body.name,
+        address: req.body.address,
+        allergies: req.body.allergies,
+        medicalAlerts: req.body.medicalAlerts,
+        emergencyContact: req.body.emergencyContact,
+        emergencyNumber: req.body.emergencyNumber
+      };
+
+      //Add to profile array
+
+      user.profile.unshift(newProfile);
 
       user.save().then((user = res.json(user)));
     });
