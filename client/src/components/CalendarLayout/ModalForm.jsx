@@ -1,11 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-// import classnames from "classnames";
-import { connect } from "react-redux";
-import { addAppointment } from "../../actions/authactions";
+import React from 'react';
 
-class AppointmentForm extends React.Component {
+export default class Form extends React.Component {
+
   constructor() {
     super();
     this.state = {
@@ -14,25 +10,24 @@ class AppointmentForm extends React.Component {
       doctor: "",
       time: "",
       copay: "",
-      comments: ""
+      comments: "",
     };
 
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange = e => {
+  onChange = (e) => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
-    });
+    })
     // console.log(value);
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const newAppointment = {
-      // date: this.state.date,
-      date: "2018-06-06 00:00:00.000",
+      date: this.state.date,
       where: this.state.where,
       doctor: this.state.doctor,
       time: this.state.time,
@@ -42,9 +37,12 @@ class AppointmentForm extends React.Component {
     this.props.addAppointment(newAppointment, this.props.history);
   };
 
+
+
   render() {
+    const { appointment } = this.props;
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.state.onSubmit} >
         <label>
           Date of appointment:
           <input
@@ -61,7 +59,8 @@ class AppointmentForm extends React.Component {
           <input
             type="text"
             name="where"
-            value={this.state.where}
+            // value={this.state.where}
+            value={appointment.id ? appointment.where : ''}
             onChange={this.onChange}
           />
         </label>
@@ -69,10 +68,11 @@ class AppointmentForm extends React.Component {
         <br />
         <label>
           What is your physicians name:
-          <input
+            <input
             type="text"
             name="doctor"
-            value={this.state.doctor}
+            // value={this.state.doctor}
+            value={appointment.id ? appointment.doctor : ''}
             onChange={this.onChange}
           />
         </label>
@@ -80,10 +80,11 @@ class AppointmentForm extends React.Component {
         <br />
         <label>
           Do you know the time:
-          <input
+            <input
             type="text"
             name="time"
-            value={this.state.time}
+            // value={this.state.time}
+            value={appointment.id ? appointment.time : ''}
             onChange={this.onChange}
           />
         </label>
@@ -91,10 +92,11 @@ class AppointmentForm extends React.Component {
         <br />
         <label>
           Is there a copay:
-          <input
+            <input
             type="text"
             name="copay"
-            value={this.state.copay}
+            // value={this.state.copay}
+            value={appointment.id ? appointment.copay : ''}
             onChange={this.onChange}
           />
         </label>
@@ -104,30 +106,15 @@ class AppointmentForm extends React.Component {
           Additional information:
           <textarea
             name="comments"
-            value={this.state.comments}
+            // value={this.state.comments}
+            value={appointment.id ? appointment.comments : ''}
             onChange={this.onChange}
           />
         </label>
         <br />
         <br />
-        <input type="submit" className="inputButton" />
+        <input type="submit" value="Submit" />
       </form>
     );
   }
 }
-
-AppointmentForm.propTypes = {
-  addAppointment: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
-});
-
-export default connect(
-  mapStateToProps,
-  { addAppointment }
-)(withRouter(AppointmentForm));
