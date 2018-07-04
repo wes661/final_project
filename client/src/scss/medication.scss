@@ -1,65 +1,151 @@
 @import 'reset';
 
-@mixin large{
+@mixin large {
     font-family: 'Montserrat', sans-serif;
 }
-@mixin smaller{
+
+@mixin smaller {
     font-family: 'Neuton', serif;
 }
 
 $orangeish: #F46036;
 
-.wrapper{
-   .form-control,.table {
-       width:100%
-   } 
+.row {
+        // margin-top: 40px;
+        padding: 10px;
+        margin-left:0px;
 }
-.row{
-    margin-left: 15px;
-}
-.panel-title{
-     width:100px;
-    position:center;
-}
+.current {
+    width: 300px;
+    margin-bottom: 10px;
 
-
-@media only screen and (max-width: 600px) {
-  
-   .h3{
-       @include smaller;
-        font-size: 60px;
+    .form-control {
+        width: 186px;
     }
-   td{
-       background-color: $orangeish;
-   }
-
-   .form-control{
-       width:186px;
-
-   }
-
-
-   .table-hover{
-       background-color: $orangeish;
-   }
-    .row{
-        margin-top:40px;
-        padding: 0 10px;
+    .table-hover {
+        background-color: $orangeish;
     }
-    .clickable{
-        cursor: pointer;   
+    
+    .clickable {
+        cursor: pointer;
     }
-
     .panel-heading div {
         margin-top: -18px;
         font-size: 15px;
     }
-    .panel-heading div span{
-        margin-left:5px;
+    .panel-heading div span {
+        margin-left: 5px;
     }
-    .panel-body{
+    .panel-body {
         display: none;
     }
-    
+    .scriptNom {
+        background-color: $orangeish !important;
+        @include large;
+        font-size: 15px;
+        width: 300px;
+
+        .th {
+            background-color: rgba(244, 95, 54, 0) !important;
+        }
+    }
+    .btn {
+        background-color: $orangeish;
+        @include large;
+        margin-bottom: 10px;
+    }
+    .panel-title {
+        @include large;
+        font-size: 20px;
+        margin-left: 75px;
+    }
+    .scripts {
+        align-items: center;
+
+        .listOscripts {
+            width: 300px;
+            padding-right: 10px;
+            margin-bottom: 10px;
+            // need to center text
+            display: block;
+
+            .xBtn {
+                width: 45.5px;
+               
+                .close {
+                    position: relative;
+                    margin-bottom: 20px; 
+                }
+            }
+        }
+    }
+    .modal-content {
+        width: 300px;
+
+        .dropdown-toggle{
+          border-color: #F46036;
+        }
+        .modal-body{
+            margin-left:25px;
+        }
+        .panel-title {
+            margin-left:50px;
+        }
+        .btn-default{
+            color:white;
+        }
+        .itemLabel{
+            @include large;
+            font-size: 12px;
+            padding-right:5px;
+        }
+        .kolor{
+            @include large;
+            font-size: 12px;
+        }
+    }
 }
+
+.past {
+    width: 300px;
+
+    .panel-title {
+        @include large;
+        font-size: 20px;
+        margin-left: 85px;
+    } 
+   
+    // scroll
+    a {
+        display: inline-block;
+        width: 50px;
+       
+    }
+    
+    scroll-container {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    scroll-container {
+        display: block;
+        width: 300px;
+        height: 200px;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        border: 1px solid $orangeish;
+        margin-top:10px;
+    }
+    scroll-page {
+        @include smaller;
+        // need to unbold font
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        font-size: 25px;
+    }
+}
+
 // https://bootsnipp.com/snippets/featured/panel-tables-with-filter
