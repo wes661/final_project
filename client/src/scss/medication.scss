@@ -94,6 +94,15 @@ $orangeish: #F46036;
         .btn-default{
             color:white;
         }
+        .itemLabel{
+            @include large;
+            font-size: 12px;
+            padding-right:5px;
+        }
+        .kolor{
+            @include large;
+            font-size: 12px;
+        }
     }
 }
 
@@ -105,6 +114,7 @@ $orangeish: #F46036;
         font-size: 20px;
         margin-left: 85px;
     } 
+   
     // scroll
     a {
         display: inline-block;
