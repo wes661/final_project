@@ -86,7 +86,7 @@ export const addAppointment = (appointmentData, history) => dispatch => {
   axios
     .post("/api/users/appointments", appointmentData)
     .then(res => {
-      history.push("/homepage");
+      history.push("/appointments");
     })
     .catch(err =>
       dispatch({

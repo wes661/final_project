@@ -19,6 +19,21 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  address: {
+    type: String
+  },
+  allergies: {
+    type: String
+  },
+  medicalAlerts: {
+    type: String
+  },
+  emergencyContact: {
+    type: String
+  },
+  emergencyNumber: {
+    type: String
+  },
   appointments: [
     {
       where: {
@@ -74,28 +89,6 @@ const UserSchema = new Schema({
       color: {
         type: String,
         required: true
-      }
-    }
-  ],
-  profile: [
-    {
-      name: {
-        type: String
-      },
-      address: {
-        type: String
-      },
-      allergies: {
-        type: String
-      },
-      medicalAlerts: {
-        type: String
-      },
-      emergencyContact: {
-        type: String
-      },
-      emergencyNumber: {
-        type: String
       }
     }
   ]

@@ -86,7 +86,9 @@ class Overview extends React.Component {
                 <tr className={this.state.day === "monday" ? "" : "hidden"}>
                   <td className="day">Monday</td>
                   <td className="center">
-                    <p>Location: 1234 W. Medical Drive </p>
+                    <p>
+                      {user.appointments[0] && user.appointments[0].doctor}{" "}
+                    </p>
                     <p>Appt Time: 2:30 PM</p>
                     <p>
                       Reminders: You wont be able to drive home due to anethesia{" "}

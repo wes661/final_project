@@ -38,6 +38,9 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
+        address: "",
+        allergies: "",
+
         appointments: [],
         meds: [],
         profile: []
@@ -126,6 +129,25 @@ router.get(
       appointments: req.user.appointments,
       meds: req.user.meds,
       profile: req.user.profile
+    });
+  }
+);
+
+//@route  GET api/users/current
+//@desc   Return current user
+//@access Private
+
+router.get(
+  "/appointment",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      where: req.body.where,
+      date: req.body.date,
+      time: req.body.time,
+      doctor: req.body.doctor,
+      copay: req.body.copay,
+      comments: req.body.comments
     });
   }
 );
