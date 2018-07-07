@@ -68,7 +68,7 @@ class EditProfile extends React.Component {
               name="name"
               value={this.props.name}
               onChange={this.onChange}
-              placeholder="Name"
+              placeholder={user.name ? user.name : "Name"}
             />
             <input
               type="text"
@@ -76,7 +76,7 @@ class EditProfile extends React.Component {
               name="address"
               value={this.props.address}
               onChange={this.onChange}
-              placeholder="Address"
+              placeholder={user.address ? user.address : "Address"}
             />
             <input
               type="text"
@@ -84,7 +84,7 @@ class EditProfile extends React.Component {
               name="allergies"
               value={this.props.allergies}
               onChange={this.onChange}
-              placeholder="Allergies"
+              placeholder={user.allergies ? user.allergies : "Address"}
             />
             <input
               type="text"
@@ -92,7 +92,7 @@ class EditProfile extends React.Component {
               name="medicalAlerts"
               value={this.props.medicalAlerts}
               onChange={this.onChange}
-              placeholder="Medical Alerts, IE: Diabetes"
+              placeholder={user.medicalAlerts ? user.medicalAlerts : "Address"}
             />
             <input
               type="text"
@@ -100,7 +100,9 @@ class EditProfile extends React.Component {
               name="emergencyContact"
               value={this.props.emergencyContact}
               onChange={this.onChange}
-              placeholder="Emergency Contact Name"
+              placeholder={
+                user.emergencyContact ? user.emergencyContact : "Address"
+              }
             />
             <input
               type="text"
@@ -108,7 +110,9 @@ class EditProfile extends React.Component {
               name="emergencyNumber"
               value={this.props.emergencyNumber}
               onChange={this.onChange}
-              placeholder="Emergency Contact Phone"
+              placeholder={
+                user.emergencyNumber ? user.emergencyNumber : "Address"
+              }
             />
             <button type="submit" className="btn btn-primary mb-2">
               Submit
