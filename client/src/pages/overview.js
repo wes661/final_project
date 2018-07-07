@@ -142,7 +142,7 @@ class Overview extends React.Component {
           <select
             name="subjects"
             id="select"
-            className="form-control"
+            className="form-control daySelect"
             onChange={this.handleDaySelect}
           >
             <option>Select Day</option>
