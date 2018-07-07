@@ -84,7 +84,7 @@ class EditProfile extends React.Component {
               name="allergies"
               value={this.props.allergies}
               onChange={this.onChange}
-              placeholder={user.allergies ? user.allergies : "Address"}
+              placeholder={user.allergies.length ? user.allergies : "Allergies"}
             />
             <input
               type="text"
@@ -92,7 +92,11 @@ class EditProfile extends React.Component {
               name="medicalAlerts"
               value={this.props.medicalAlerts}
               onChange={this.onChange}
-              placeholder={user.medicalAlerts ? user.medicalAlerts : "Address"}
+              placeholder={
+                user.medicalAlerts.length
+                  ? user.medicalAlerts
+                  : "Medical Alerts"
+              }
             />
             <input
               type="text"
@@ -101,7 +105,9 @@ class EditProfile extends React.Component {
               value={this.props.emergencyContact}
               onChange={this.onChange}
               placeholder={
-                user.emergencyContact ? user.emergencyContact : "Address"
+                user.emergencyContact
+                  ? user.emergencyContact
+                  : "Emergency Contact"
               }
             />
             <input
@@ -111,7 +117,9 @@ class EditProfile extends React.Component {
               value={this.props.emergencyNumber}
               onChange={this.onChange}
               placeholder={
-                user.emergencyNumber ? user.emergencyNumber : "Address"
+                user.emergencyNumber
+                  ? user.emergencyNumber
+                  : "Emergency Contact Number"
               }
             />
             <button type="submit" className="btn btn-primary mb-2">
