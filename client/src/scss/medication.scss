@@ -91,18 +91,38 @@ $orangeish: #F46036;
         .panel-title {
             margin-left:50px;
         }
+        .times{
+            width:200px;
+            margin-right: 5px;
+            @include large;
+            font-size: 12px;
+        }
+        .form-group{
+            
+            .nom{
+                margin-top:0;
+            }
+            .quant{
+                margin-top:10;
+            }
+        }
         .btn-default{
             color:white;
         }
-        .itemLabel{
-            @include large;
-            font-size: 12px;
-            padding-right:5px;
+        .input-group{
+            width:100px;
+
+            .itemLabel{
+                @include large;
+                font-size: 12px;
+                padding-right:5px;
+            }
+            .kolor{
+                @include large;
+                font-size: 12px;
+            }
         }
-        .kolor{
-            @include large;
-            font-size: 12px;
-        }
+      
     }
 }
 

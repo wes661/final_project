@@ -96,9 +96,9 @@ export const addAppointment = (appointmentData, history) => dispatch => {
     );
 };
 
-export const addMed = (userData, history) => dispatch => {
+export const addMed = (medData, history) => dispatch => {
   axios
-    .post("/api/users/meds", userData)
+    .post("/api/users/meds", medData)
     .then(res => history.push("/medications"))
     .catch(err =>
       dispatch({
