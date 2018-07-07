@@ -38,8 +38,14 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
+        address: "",
+        allergies: "",
+        medicalAlerts: "",
+        emergencyContact: "",
+        emergencyNumber: "",
         appointments: [],
-        meds: []
+        meds: [],
+        profile: []
       });
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -85,8 +91,14 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
+          address: user.address,
+          allergies: user.allergies,
+          medicalAlerts: user.medicalAlerts,
+          emergencyContact: user.emergencyContact,
+          emergencyNumber: user.emergencyNumber,
           meds: user.meds,
-          appointments: user.appointments
+          appointments: user.appointments,
+          profile: user.profile
         }; //Create JWT payload
 
         //Sign Token
@@ -120,9 +132,34 @@ router.get(
     res.json({
       id: req.user.id,
       name: req.user.name,
+      address: req.user.address,
+      allergies: req.user.allergies,
+      medicalAlerts: req.user.medicalAlerts,
+      emergencyContact: req.user.emergencyContact,
+      emergencyNumber: req.user.emergencyNumber,
       email: req.user.email,
       appointments: req.user.appointments,
-      meds: req.user.meds
+      meds: req.user.meds,
+      profile: req.user.profile
+    });
+  }
+);
+
+//@route  GET api/users/current
+//@desc   Return current user
+//@access Private
+
+router.get(
+  "/appointment",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      where: req.body.where,
+      date: req.body.date,
+      time: req.body.time,
+      doctor: req.body.doctor,
+      copay: req.body.copay,
+      comments: req.body.comments
     });
   }
 );
@@ -135,27 +172,39 @@ router.post(
   "/appointments",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateAppointmentInput(req.body);
+    // const { errors, isValid } = validateAppointmentInput(req.body);
 
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
     //Get fields
-    console.log(req.user);
-    User.findOne({ _id: req.user._id }).then(user => {
-      console.log(user);
-      const newAppointment = {
-        name: req.body.name,
-        where: req.body.where,
-        when: req.body.when
-      };
+    // console.log(req.user);
+    User.findOne({ _id: req.user._id })
+      .then(user => {
+        // console.log(user);
+        const newAppointment = {
+          where: req.body.where,
+          date: req.body.date,
+          time: req.body.time,
+          doctor: req.body.doctor,
+          copay: req.body.copay,
+          comments: req.body.comments
+        };
 
-      //Add to appointment array
+        //Add to appointment array
 
-      user.appointments.unshift(newAppointment);
+        user.appointments.unshift(newAppointment);
 
-      user.save().then((user = res.json(user)));
-    });
+        user
+          .save()
+          .then((user = res.json(user)))
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 );
 
@@ -172,10 +221,15 @@ router.post(
     User.findOne({ _id: req.user._id }).then(user => {
       console.log(user);
       const newMed = {
-        name: req.body.name
+        name: req.body.name,
+        day: req.body.days,
+        quantity: req.body.quantity,
+        frequency: req.body.frequency,
+        shape: req.body.shape,
+        color: req.body.color
       };
 
-      //Add to appointment array
+      //Add to meds array
 
       user.meds.unshift(newMed);
 
@@ -208,6 +262,33 @@ router.get(
   (req, res) => {
     res.json({
       meds: req.user.meds
+    });
+  }
+);
+
+router.post(
+  "/profile",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const profileFields = {};
+    if (req.body.name) profileFields.name = req.body.name;
+    if (req.body.address) profileFields.address = req.body.address;
+    if (req.body.allergies) profileFields.allergies = req.body.allergies;
+    if (req.body.medicalAlerts)
+      profileFields.medicalAlerts = req.body.medicalAlerts;
+    if (req.body.emergencyContact)
+      profileFields.emergencyContact = req.body.emergencyContact;
+    if (req.body.emergencyNumber)
+      profileFields.emergencyNumber = req.body.emergencyNumber;
+
+    User.findByIdAndUpdate({ _id: req.user._id }).then(user => {
+      if (user) {
+        User.findByIdAndUpdate(
+          { _id: req.user._id },
+          { $set: profileFields },
+          { new: true }
+        ).then(user => res.json(user));
+      }
     });
   }
 );

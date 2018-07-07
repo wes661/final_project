@@ -2,25 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { getUserData } from "../actions/authactions";
 import "../css/homepage.css";
-import placeholder from "../pictures/placeholder.jpeg";
 
 class Homepage extends React.Component {
   componentDidMount() {
-    if (!this.props.auth.isAuthenticated) {
+    this.props.getUserData();
+    if (this.props.auth.isAuthenticated === false) {
       this.props.history.push("/");
     }
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { user } = this.props.auth;
 
     return (
       // -------- Start HTML here -------- //
       <div className="wrapper">
-      
         <div className="container-fluid">
-
           <p className="btn btn-info col-12 medBtn">
             <Link to="/medications"> Your Medications </Link>
           </p>
@@ -41,6 +40,7 @@ class Homepage extends React.Component {
 }
 
 Homepage.propTypes = {
+  getUserData: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -48,4 +48,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Homepage);
+export default connect(
+  mapStateToProps,
+  { getUserData }
+)(Homepage);

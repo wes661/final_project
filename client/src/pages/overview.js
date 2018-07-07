@@ -1,8 +1,13 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { getUserData } from "../actions/authactions";
 import "../css/overview.css";
 import placeholder from "../pictures/placeholder.jpeg";
+import background from "../pictures/profilebackground.png";
+
+import oval from "../pictures/circle.svg";
 
 class Overview extends React.Component {
   state = {
@@ -16,13 +21,14 @@ class Overview extends React.Component {
   };
 
   componentDidMount() {
-    if (!this.props.auth.isAuthenticated) {
+    this.props.getUserData();
+    if (this.props.auth.isAuthenticated === false) {
       this.props.history.push("/");
     }
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { user } = this.props.auth;
 
     const medList = user.meds.map(med => <td>{med.name}</td>);
 
@@ -31,15 +37,15 @@ class Overview extends React.Component {
 
       <div className="wrapper">
         {/* Profile start */}
-        <div className="container-fluid">
-          <img className="profilePic" src={placeholder} alt="profile" />
-          <div className="jumbotron jumbotron-fluid">
-            <h1 className="text-center">Welcome Harold!</h1>
-            <h1 className="text-center">Allergies: Peanuts, Chocolate, Fun</h1>
-            <h1 className="text-center">Medical Alerts: Diabetic</h1>
-            <h1 className="text-center">View Profile</h1>
-          </div>
-        </div>
+        <img className="background" src={background} alt="wallpaper" />
+        <img className="profilePic" src={placeholder} alt="profile" />
+        <h1 className="userName"> Welcome Harold </h1>
+        <p className="profileEdit">
+          <Link to="/Profile"> View Profile </Link>
+        </p>
+        <p className="back2">
+          <Link to="/homepage"> Back to Home </Link>
+        </p>
         {/* Profile End */}
         {/* Appointment Div Start */}
         <div className="container-fluid">
@@ -80,14 +86,19 @@ class Overview extends React.Component {
                 <tr className={this.state.day === "monday" ? "" : "hidden"}>
                   <td className="day">Monday</td>
                   <td className="center">
-                    <p>Location: 1234 W. Medical Drive </p>
+                    <p>
+                      {user.appointments[0] && user.appointments[0].doctor}{" "}
+                    </p>
                     <p>Appt Time: 2:30 PM</p>
-                    <p>Reminders: You wont be able to drive home due to anethesia </p>
+                    <p>
+                      Reminders: You wont be able to drive home due to anethesia{" "}
+                    </p>
                   </td>
                 </tr>
                 <tr className={this.state.day === "tuesday" ? "" : "hidden"}>
                   <td className="day">Tuesday</td>
-                  <td className="center"><p>This is where the appointment is</p>
+                  <td className="center">
+                    <p>This is where the appointment is</p>
                     <p>This is the time </p>
                     <p>This is additional Comments about it </p>
                   </td>
@@ -154,58 +165,209 @@ class Overview extends React.Component {
               <tbody>
                 <tr className={this.state.day === "monday" ? "" : "hidden"}>
                   <td className="day">Monday</td>
-                 
-                  <td className="center"> 
-                  <p>Morning</p>
-                  <div className = "pillBox">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20">
-                      <path fill="brown" fill-rule="evenodd" stroke="#9B9B9B" d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22">
-                      <path fill="pink" fill-rule="evenodd" stroke="#9B9B9B" d="M10 1l8.66 5v10L10 21l-8.66-5V6z" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                      <circle cx="16" cy="51" r="10" fill="red" fill-rule="evenodd" stroke="#9B9B9B" transform="translate(-5 -40)" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                      <circle cx="16" cy="51" r="10" fill="red" fill-rule="evenodd" stroke="#9B9B9B" transform="translate(-5 -40)" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                      <circle cx="16" cy="51" r="10" fill="red" fill-rule="evenodd" stroke="#9B9B9B" transform="translate(-5 -40)" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                      <circle cx="16" cy="51" r="10" fill="red" fill-rule="evenodd" stroke="#9B9B9B" transform="translate(-5 -40)" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                      <circle cx="16" cy="51" r="10" fill="red" fill-rule="evenodd" stroke="#9B9B9B" transform="translate(-5 -40)" />
-                    </svg>
-                  </div>
-                  </td>
-                  <td className="center"> 
-                  <p>Midday</p>
-                    <div className = "pillBox">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20">
-                          <path fill="brown" fill-rule="evenodd" stroke="#9B9B9B" d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22">
-                          <path fill="pink" fill-rule="evenodd" stroke="#9B9B9B" d="M10 1l8.66 5v10L10 21l-8.66-5V6z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                          <circle cx="16" cy="51" r="10" fill="red" fill-rule="evenodd" stroke="#9B9B9B" transform="translate(-5 -40)" />
-                        </svg>
+
+                  <td className="center">
+                    <p>Morning</p>
+                    <div className="pillBox">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="20"
+                        viewBox="0 0 22 20"
+                      >
+                        <path
+                          fill="brown"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="22"
+                        viewBox="0 0 20 22"
+                      >
+                        <path
+                          fill="pink"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
                     </div>
                   </td>
-                  <td className="center"> 
-                  <p>Evening</p>
+                  <td className="center">
+                    <p>Midday</p>
                     <div className="pillBox">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20">
-                      <path fill="yellow" fill-rule="evenodd" stroke="#9B9B9B" d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="20"
+                        viewBox="0 0 22 20"
+                      >
+                        <path
+                          fill="brown"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
+                        />
                       </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22">
-                      <path fill="purple" fill-rule="evenodd" stroke="#9B9B9B" d="M10 1l8.66 5v10L10 21l-8.66-5V6z" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="22"
+                        viewBox="0 0 20 22"
+                      >
+                        <path
+                          fill="pink"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
+                        />
                       </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-                      <circle cx="16" cy="51" r="10" fill="red" fill-rule="evenodd" stroke="#9B9B9B" transform="translate(-5 -40)" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
+                      </svg>
+                    </div>
+                  </td>
+                  <td className="center">
+                    <p>Evening</p>
+                    <div className="pillBox">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="20"
+                        viewBox="0 0 22 20"
+                      >
+                        <path
+                          fill="yellow"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="22"
+                        viewBox="0 0 20 22"
+                      >
+                        <path
+                          fill="purple"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                      >
+                        <circle
+                          cx="16"
+                          cy="51"
+                          r="10"
+                          fill="red"
+                          fill-rule="evenodd"
+                          stroke="#9B9B9B"
+                          transform="translate(-5 -40)"
+                        />
                       </svg>
                     </div>
                   </td>
@@ -258,6 +420,7 @@ class Overview extends React.Component {
 }
 
 Overview.propTypes = {
+  getUserData: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -265,4 +428,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Overview);
+export default connect(
+  mapStateToProps,
+  { getUserData }
+)(Overview);
