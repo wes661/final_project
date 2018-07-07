@@ -23,10 +23,10 @@ const UserSchema = new Schema({
     type: String
   },
   allergies: {
-    type: String
+    type: [String]
   },
   medicalAlerts: {
-    type: String
+    type: [String]
   },
   emergencyContact: {
     type: String
