@@ -18,6 +18,7 @@ class Overview extends React.Component {
     this.setState({
       day: date
     });
+
   };
 
   componentDidMount() {
