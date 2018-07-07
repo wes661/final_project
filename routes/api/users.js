@@ -272,9 +272,15 @@ router.post(
     const profileFields = {};
     if (req.body.name) profileFields.name = req.body.name;
     if (req.body.address) profileFields.address = req.body.address;
-    if (req.body.allergies) profileFields.allergies = req.body.allergies;
-    if (req.body.medicalAlerts)
-      profileFields.medicalAlerts = req.body.medicalAlerts;
+    if (typeof req.body.allergies !== "undefined") {
+      profileFields.allergies = req.body.allergies.split(",");
+    }
+    // if (req.body.allergies) profileFields.allergies = req.body.allergies;
+    if (typeof req.body.medicalAlerts !== "undefined") {
+      profileFields.medicalAlerts = req.body.medicalAlerts.split(",");
+    }
+    // if (req.body.medicalAlerts)
+    profileFields.medicalAlerts = req.body.medicalAlerts;
     if (req.body.emergencyContact)
       profileFields.emergencyContact = req.body.emergencyContact;
     if (req.body.emergencyNumber)
