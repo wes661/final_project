@@ -12,6 +12,7 @@ export default class AppModal extends React.Component {
     const { copay } = this.props;
     const { comments } = this.props;
     const { appointment } = this.props;
+
     // const appointment = {
     //   id: 1,
     //   where: 'tucson',
@@ -42,6 +43,7 @@ export default class AppModal extends React.Component {
           time={time}
           copay={copay}
           comments={comments}
+          onSubmit={this.props.onCloseModal}
         />
       </Modal>
     );
