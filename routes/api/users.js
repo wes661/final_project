@@ -40,7 +40,9 @@ router.post("/register", (req, res) => {
         password: req.body.password,
         address: "",
         allergies: "",
-
+        medicalAlerts: "",
+        emergencyContact: "",
+        emergencyNumber: "",
         appointments: [],
         meds: [],
         profile: []
@@ -89,6 +91,11 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
+          address: user.address,
+          allergies: user.allergies,
+          medicalAlerts: user.medicalAlerts,
+          emergencyContact: user.emergencyContact,
+          emergencyNumber: user.emergencyNumber,
           meds: user.meds,
           appointments: user.appointments,
           profile: user.profile
@@ -125,6 +132,11 @@ router.get(
     res.json({
       id: req.user.id,
       name: req.user.name,
+      address: req.user.address,
+      allergies: req.user.allergies,
+      medicalAlerts: req.user.medicalAlerts,
+      emergencyContact: req.user.emergencyContact,
+      emergencyNumber: req.user.emergencyNumber,
       email: req.user.email,
       appointments: req.user.appointments,
       meds: req.user.meds,
@@ -226,35 +238,6 @@ router.post(
   }
 );
 
-//@route  POST api/users/profile
-//@desc   Post new profile
-//@access Private
-
-router.post(
-  "/profile",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    //Get fields
-
-    User.findOne({ _id: req.user._id }).then(user => {
-      const newProfile = {
-        name: req.body.name,
-        address: req.body.address,
-        allergies: req.body.allergies,
-        medicalAlerts: req.body.medicalAlerts,
-        emergencyContact: req.body.emergencyContact,
-        emergencyNumber: req.body.emergencyNumber
-      };
-
-      //Add to profile array
-
-      user.profile.unshift(newProfile);
-
-      user.save().then((user = res.json(user)));
-    });
-  }
-);
-
 //@route  GET api/users/appointments
 //@desc   Return appointments
 //@access Private
@@ -279,6 +262,33 @@ router.get(
   (req, res) => {
     res.json({
       meds: req.user.meds
+    });
+  }
+);
+
+router.post(
+  "/profile",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const profileFields = {};
+    if (req.body.name) profileFields.name = req.body.name;
+    if (req.body.address) profileFields.address = req.body.address;
+    if (req.body.allergies) profileFields.allergies = req.body.allergies;
+    if (req.body.medicalAlerts)
+      profileFields.medicalAlerts = req.body.medicalAlerts;
+    if (req.body.emergencyContact)
+      profileFields.emergencyContact = req.body.emergencyContact;
+    if (req.body.emergencyNumber)
+      profileFields.emergencyNumber = req.body.emergencyNumber;
+
+    User.findByIdAndUpdate({ _id: req.user._id }).then(user => {
+      if (user) {
+        User.findByIdAndUpdate(
+          { _id: req.user._id },
+          { $set: profileFields },
+          { new: true }
+        ).then(user => res.json(user));
+      }
     });
   }
 );
