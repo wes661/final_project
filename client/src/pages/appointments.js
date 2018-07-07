@@ -12,8 +12,8 @@ class Appointments extends React.Component {
     this.state = {
       date: new Date(),
       open: false,
-      currentAppointment: {}
     };
+
   }
   onOpenModal = date => {
     this.setState({ open: true });
@@ -24,8 +24,9 @@ class Appointments extends React.Component {
   };
 
   onDateChange = date => {
-    // const currentAppointment = this.props.user.appointments.filter(appointment => appointment.date === date); console.log(currentAppointment);
-    // this.setState({ date })
+    // const currentAppointment = this.props.user.appointments.filter(appointment => appointment.date === date);
+    // console.log(currentAppointment);
+    this.setState({ date })
   };
 
   componentDidMount() {
@@ -47,7 +48,6 @@ class Appointments extends React.Component {
         <AppModal
           open={this.state.open}
           date={this.state.date}
-          appointment={this.state.currentAppointment}
           onCloseModal={this.onCloseModal}
         />
       </div>

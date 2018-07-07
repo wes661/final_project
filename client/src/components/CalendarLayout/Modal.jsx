@@ -12,14 +12,14 @@ export default class AppModal extends React.Component {
     const { copay } = this.props;
     const { comments } = this.props;
     const { appointment } = this.props;
-    // const appointment = {
-    //   id: 1,
-    //   where: 'tucson',
-    //   doctor: 'Obsessive Coder',
-    //   time: '4:19',
-    //   copay: '1',
-    //   comments: 'no comments'
-    // }
+    const currentAppointment = {
+      id: 1,
+      where: 'tucson',
+      doctor: 'joey',
+      time: '4:19',
+      copay: '1',
+      comments: 'no comments'
+    }
 
     return (
       <Modal
@@ -36,7 +36,7 @@ export default class AppModal extends React.Component {
       >
         <Form
           date={date}
-          appointment={appointment}
+          appointment={currentAppointment}
           where={where}
           doctor={doctor}
           time={time}

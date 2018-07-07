@@ -37,10 +37,7 @@ export default class Form extends React.Component {
     this.props.addAppointment(newAppointment, this.props.history);
   };
 
-
-
   render() {
-    const { appointment } = this.props;
     return (
       <form onSubmit={this.state.onSubmit} >
         <label>
@@ -59,8 +56,8 @@ export default class Form extends React.Component {
           <input
             type="text"
             name="where"
-            // value={this.state.where}
-            value={appointment.id ? appointment.where : ''}
+            value={this.state.where}
+            // value={appointment.id ? appointment.where : ''}
             onChange={this.onChange}
           />
         </label>
@@ -71,8 +68,8 @@ export default class Form extends React.Component {
             <input
             type="text"
             name="doctor"
-            // value={this.state.doctor}
-            value={appointment.id ? appointment.doctor : ''}
+            value={this.state.doctor}
+            // value={appointment.id ? appointment.doctor : ''}
             onChange={this.onChange}
           />
         </label>
@@ -83,8 +80,8 @@ export default class Form extends React.Component {
             <input
             type="text"
             name="time"
-            // value={this.state.time}
-            value={appointment.id ? appointment.time : ''}
+            value={this.state.time}
+            // value={appointment.id ? appointment.time : ''}
             onChange={this.onChange}
           />
         </label>
@@ -95,8 +92,8 @@ export default class Form extends React.Component {
             <input
             type="text"
             name="copay"
-            // value={this.state.copay}
-            value={appointment.id ? appointment.copay : ''}
+            value={this.state.copay}
+            // value={appointment.id ? appointment.copay : ''}
             onChange={this.onChange}
           />
         </label>
@@ -106,8 +103,8 @@ export default class Form extends React.Component {
           Additional information:
           <textarea
             name="comments"
-            // value={this.state.comments}
-            value={appointment.id ? appointment.comments : ''}
+            value={this.state.comments}
+            // value={appointment.id ? appointment.comments : ''}
             onChange={this.onChange}
           />
         </label>
