@@ -15,5 +15,37 @@ $lightgreenish: #C5D86D;
 
 .react-calendar{
     margin: auto;
-    margin-top: 50%;
+    margin-top: 10%;
+    @include large;
+    margin-right: 10px;
+    margin-left:10px;
+    border-radius:10px;
+    box-shadow: 0px 10px 14px 2px rgba(0,0,0,0.25);
+        .react-calendar__navigation {
+            @include large;
+            height: 44px;
+            margin-bottom: 0em;
+    }
+}
+
+.card.border-secondary {
+        @include smaller;
+        margin-top: 30px;
+        background-color: white;
+        border: none;
+        width: 100%;
+        padding-bottom: 60%;
+        border-bottom-left-radius: 5px; 
+        border-bottom-right-radius: 5px;
+        box-shadow: 0px 10px 14px -2px rgba(0,0,0,0.25);
+        .card-header {
+            background-color: rgba(0, 0, 0, 0.586);
+            box-shadow: 0px 10px 14px -2px rgba(0,0,0,0.25);
+            color: white;
+            padding-bottom: 5%;
+            border-bottom-left-radius: 2.5px; 
+            border-bottom-right-radius: 2.5px;
+            border-top-left-radius: 5px; 
+            border-top-right-radius: 5px;    
+        }
 }

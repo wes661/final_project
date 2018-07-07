@@ -24,9 +24,8 @@ class Appointments extends React.Component {
   };
 
   onDateChange = date => {
-    // const currentAppointment = this.props.user.appointments.filter(appointment => appointment.date === date);
-    // console.log(currentAppointment);
-    this.setState({ date })
+    // const currentAppointment = this.props.user.appointments.filter(appointment => appointment.date === date); console.log(currentAppointment);
+    this.setState({ date });
   };
 
   componentDidMount() {
@@ -37,6 +36,20 @@ class Appointments extends React.Component {
   }
 
   render() {
+    const { user } = this.props.auth;
+
+    const appointmentList = user.appointments.map(appointment => (
+      <ul>
+        <br />
+        <li>{appointment.date}</li>
+        <li>{appointment.where}</li>
+        <li>{appointment.doctor}</li>
+        <li>{appointment.time}</li>
+        <li>{appointment.copay}</li>
+        <li>{appointment.comments}</li>
+        <br />
+      </ul>
+    ));
     return (
       // -------- Start HTML here -------- //
       <div className="calendar">
@@ -50,6 +63,16 @@ class Appointments extends React.Component {
           date={this.state.date}
           onCloseModal={this.onCloseModal}
         />
+        <div className="container">
+          <div className="card border-secondary">
+            <div className="card-header">Upcoming Appointments</div>
+            <div className="card-body text-secondary">
+              <p className="card-text">
+                {appointmentList}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       // ------ End HTML here -------------- //
     );

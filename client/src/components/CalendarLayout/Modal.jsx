@@ -42,6 +42,7 @@ export default class AppModal extends React.Component {
           time={time}
           copay={copay}
           comments={comments}
+          onSubmit={this.props.onCloseModal}
         />
       </Modal>
     );

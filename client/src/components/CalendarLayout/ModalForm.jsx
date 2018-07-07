@@ -1,7 +1,11 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+// import classnames from "classnames";
+import { connect } from "react-redux";
+import { addAppointment } from "../../actions/authactions";
 
-export default class Form extends React.Component {
-
+class Form extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -10,24 +14,24 @@ export default class Form extends React.Component {
       doctor: "",
       time: "",
       copay: "",
-      comments: "",
+      comments: ""
     };
 
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange = (e) => {
+  onChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
-    })
+    });
     // console.log(value);
   };
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
     const newAppointment = {
-      date: this.state.date,
+      date: "Sat Jul 07 2018 00:00:00 GMT-0700",
       where: this.state.where,
       doctor: this.state.doctor,
       time: this.state.time,
@@ -35,17 +39,18 @@ export default class Form extends React.Component {
       comments: this.state.comments
     };
     this.props.addAppointment(newAppointment, this.props.history);
+    this.props.onSubmit();
   };
 
   render() {
     return (
-      <form onSubmit={this.state.onSubmit} >
+      <form onSubmit={this.onSubmit}>
         <label>
           Date of appointment:
           <input
             type="text"
             name="date"
-            value={this.props.date}
+            // value={this.props.date}
             onChange={this.onChange}
           />
         </label>
@@ -65,7 +70,7 @@ export default class Form extends React.Component {
         <br />
         <label>
           What is your physicians name:
-            <input
+          <input
             type="text"
             name="doctor"
             value={this.state.doctor}
@@ -77,7 +82,7 @@ export default class Form extends React.Component {
         <br />
         <label>
           Do you know the time:
-            <input
+          <input
             type="text"
             name="time"
             value={this.state.time}
@@ -89,7 +94,7 @@ export default class Form extends React.Component {
         <br />
         <label>
           Is there a copay:
-            <input
+          <input
             type="text"
             name="copay"
             value={this.state.copay}
@@ -115,3 +120,19 @@ export default class Form extends React.Component {
     );
   }
 }
+
+Form.propTypes = {
+  addAppointment: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { addAppointment }
+)(withRouter(Form));

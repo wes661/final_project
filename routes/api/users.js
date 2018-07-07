@@ -39,8 +39,8 @@ router.post("/register", (req, res) => {
         email: req.body.email,
         password: req.body.password,
         address: "",
-        allergies: "",
-        medicalAlerts: "",
+        allergies: [],
+        medicalAlerts: [],
         emergencyContact: "",
         emergencyNumber: "",
         appointments: [],
@@ -272,9 +272,15 @@ router.post(
     const profileFields = {};
     if (req.body.name) profileFields.name = req.body.name;
     if (req.body.address) profileFields.address = req.body.address;
-    if (req.body.allergies) profileFields.allergies = req.body.allergies;
-    if (req.body.medicalAlerts)
-      profileFields.medicalAlerts = req.body.medicalAlerts;
+    if (req.body.allergies) {
+      profileFields.allergies = req.body.allergies.split(",");
+    }
+    // if (req.body.allergies) profileFields.allergies = req.body.allergies;
+    if (req.body.medicalAlerts) {
+      profileFields.medicalAlerts = req.body.medicalAlerts.split(",");
+    }
+    // if (req.body.medicalAlerts)
+    //profileFields.medicalAlerts = req.body.medicalAlerts;
     if (req.body.emergencyContact)
       profileFields.emergencyContact = req.body.emergencyContact;
     if (req.body.emergencyNumber)
