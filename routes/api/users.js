@@ -44,8 +44,7 @@ router.post("/register", (req, res) => {
         emergencyContact: "",
         emergencyNumber: "",
         appointments: [],
-        meds: [],
-        profile: []
+        meds: []
       });
 
       bcrypt.genSalt(10, (err, salt) => {
