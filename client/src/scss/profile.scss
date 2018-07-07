@@ -73,14 +73,14 @@ $lightgreenish: #C5D86D;
         color: white !important;
     }
 }
-.form-inline {
-   margin-top: 60px;
-    .form-control {
-        box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
-        margin-top: 20px;
+.editFormInline {
+   margin-top: -10px!important;
+    .editFormControl {
+        box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466)!important;
+        margin-top: 80px!important;
     }
     .btn {
-        margin-top: 20px;
-        box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466);
+        margin-top: 90px!important;
+        box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466)!important;
     }
 }

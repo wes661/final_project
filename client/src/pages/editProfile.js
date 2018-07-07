@@ -61,10 +61,10 @@ class EditProfile extends React.Component {
         <img className="profilePic2" src={placeholder} alt="profile" />
         <h1 className="userName"> Welcome Harold </h1>
         <div className="container-fluid">
-          <form onSubmit={this.onSubmit} className="form-inline">
+          <form onSubmit={this.onSubmit} className="form-inline editFormInline">
             <input
               type="text"
-              className="form-control"
+              className="form-control editFormControl"
               name="name"
               value={this.props.name}
               onChange={this.onChange}
@@ -72,7 +72,7 @@ class EditProfile extends React.Component {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control editFormControl"
               name="address"
               value={this.props.address}
               onChange={this.onChange}
@@ -80,7 +80,7 @@ class EditProfile extends React.Component {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control editFormControl"
               name="allergies"
               value={this.props.allergies}
               onChange={this.onChange}
@@ -88,7 +88,7 @@ class EditProfile extends React.Component {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control editFormControl"
               name="medicalAlerts"
               value={this.props.medicalAlerts}
               onChange={this.onChange}
@@ -100,7 +100,7 @@ class EditProfile extends React.Component {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control editFormControl"
               name="emergencyContact"
               value={this.props.emergencyContact}
               onChange={this.onChange}
@@ -112,7 +112,7 @@ class EditProfile extends React.Component {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control editFormControl"
               name="emergencyNumber"
               value={this.props.emergencyNumber}
               onChange={this.onChange}
