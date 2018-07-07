@@ -4,6 +4,8 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { getUserData } from "../actions/authactions";
 import "../css/homepage.css";
+import screen1 from "../pictures/test.png";
+
 
 class Homepage extends React.Component {
   componentDidMount() {
@@ -12,31 +14,20 @@ class Homepage extends React.Component {
       this.props.history.push("/");
     }
   }
-
   render() {
-    const { user } = this.props.auth;
-
-    return (
-      // -------- Start HTML here -------- //
-      <div className="wrapper">
-        <div className="container-fluid">
-          <p className="btn btn-info col-12 medBtn">
-            <Link to="/medications"> Your Medications </Link>
-          </p>
-          <p className="btn btn-info col-12 appBtn">
-            <Link to="/appointments"> Doctor Appointments </Link>
-          </p>
-          <p className="btn btn-info col-12 overBtn">
-            <Link to="/overview"> Medical Overview </Link>
-          </p>
-          <p className="btn btn-info col-12 aboutBtn">
-            <Link to="/about"> Our Mission </Link>
-          </p>
+      return (
+        // -------- Start HTML here -------- //
+        <div className="wrapper">
+          <div className="container-fluid">
+            <Link to="/medications"> <p className="btn btn-info col-12 medBtn">Your Medications </p></Link>
+            <Link to="/appointments"> <p className="btn btn-info col-12 appBtn">Doctor Appointments </p></Link>
+            <Link to="/overview">  <p className="btn btn-info col-12 overBtn">Medical Overview  </p></Link>
+            <Link to="/about"><p className="btn btn-info col-12 aboutBtn"> Our Mission </p> </Link>
+          </div>
         </div>
-      </div>
-      // ------ End HTML here -------------- //
-    );
-  }
+        // ------ End HTML here -------------- //
+      );
+    } 
 }
 
 Homepage.propTypes = {

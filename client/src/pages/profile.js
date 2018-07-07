@@ -33,27 +33,27 @@ class Profile extends React.Component {
         <div className="container-fluid">
           <div className="card">
             <ul className="list-group">
-              <li className="list-group-item">Name: Harold ShutterStock</li>
+              <li className="list-group-item">Name: {user.name}</li>
             </ul>
             <ul className="list-group">
-              <li className="list-group-item">Address: 1234 Murder Lane</li>
+              <li className="list-group-item">Address: {user.address}</li>
             </ul>
             <ul className="list-group">
-              <li className="list-group-item">
-                Allergies: Chocolate, Peanuts, Fun
-              </li>
-            </ul>
-            <ul className="list-group">
-              <li className="list-group-item">Medical Alerts: Diabetic</li>
+              <li className="list-group-item">Allergies: {user.allergies}</li>
             </ul>
             <ul className="list-group">
               <li className="list-group-item">
-                Emergency Contact: Younger Harold
+                Medical Alerts: {user.medicalAlerts}
               </li>
             </ul>
             <ul className="list-group">
               <li className="list-group-item">
-                Emergency Contact Phone: 555-555-5555
+                Emergency Contact: {user.emergencyContact}
+              </li>
+            </ul>
+            <ul className="list-group">
+              <li className="list-group-item">
+                Emergency Contact Phone: {user.emergencyNumber}
               </li>
             </ul>
           </div>

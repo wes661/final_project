@@ -16,7 +16,9 @@ $borderRadius: 10px;
 $imageBig: 100px;
 $imageSmall: 60px;
 $padding: 10px;
-
+.appointments {
+    margin-top: 75px;
+}
 .background {
     background-size: cover;
     width: 100%;
@@ -79,6 +81,7 @@ $padding: 10px;
    padding: 1rem;
    text-align: center;
    text-transform: uppercase;
+   margin-top: 20px;
 }
 
 img {
@@ -245,7 +248,7 @@ table {
       overflow: visible;
    }
 }
-.form-control {
+.daySelect {
     margin-top: 20%;
 }
 .back2 {
