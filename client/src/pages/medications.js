@@ -265,17 +265,23 @@ class Medications extends React.Component {
                           &times;
                         </button>
                       </div>
-                      <div className="modal-body">
+                      <form onSubmit={this.onSubmit} className="modal-body">
                         <div className="form-group">
                           <input
                             type="text"
+                            name="name"
+                            value={this.state.name}
                             className="form-control nom"
                             placeholder="Name"
+                            onChange={this.onChange}
                           />
                           <input
                             type="text"
+                            name="quantity"
+                            value={this.state.quantity}
                             className="form-control quant"
-                            placeholder="Quant"
+                            placeholder="Quantity"
+                            onChange={this.onChange}
                           />
                         </div>
                         {/* times of day */}
@@ -725,7 +731,7 @@ class Medications extends React.Component {
                           </button>
                         </div>
                         {/* end of modal */}
-                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>
