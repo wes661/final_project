@@ -67,7 +67,7 @@ class Appointments extends React.Component {
           <div className="card border-secondary">
             <div className="card-header">Upcoming Appointments</div>
             <div className="card-body text-secondary">
-              <p className="lighten-text">View all scheduled appoinments here...</p>
+              <p className="lighten-text">Scroll through the box below..</p>
               <p className="card-text scroll-box">
                 {appointmentList}
                 {appointmentList}
