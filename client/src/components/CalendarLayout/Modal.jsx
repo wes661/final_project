@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-responsive-modal";
 import Form from "./ModalForm";
 import "./custom-animation.css";
+import "../../css/modal.css";
 
 export default class AppModal extends React.Component {
   render() {

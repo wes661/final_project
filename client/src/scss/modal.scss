@@ -1,0 +1,44 @@
+@import 'reset';
+
+@mixin large{
+    font-family: 'Montserrat', sans-serif;
+}
+@mixin smaller{
+    font-family: 'Neuton', serif;
+}
+$redish: #D7263D;
+$orangeish: #F46036;
+$blueish: #2E294E;
+$greenish: #1B998B;
+$lightgreenish: #C5D86D;
+
+.styles_overlayCenter__YHoO7 {
+    align-items: center;
+}
+.styles_modal__gNwvD {
+    max-width: 800px;
+    position: relative;
+    padding: 5.6rem;
+    background: #b9b9b9de;
+    background-clip: padding-box;
+    box-shadow: 27 12px 15px 4 black;
+    border-radius: 28px;    
+}
+
+.label-time {
+    @include smaller;
+   margin-left: -40px;
+}
+
+.text-area {
+    @include smaller;
+    margin-left: 12px;
+}
+
+h1, input {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    width: 154%;
+    padding-right: 70px;
+    margin-left: -48px;
+    border-radius: 10px;
+}
