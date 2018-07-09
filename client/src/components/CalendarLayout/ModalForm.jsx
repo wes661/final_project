@@ -71,9 +71,11 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
+
           <p className="label-time"> Physician Name:</p>
           <input
             className="input-size"
+
             type="text"
             name="doctor"
             value={this.state.doctor}
@@ -84,9 +86,11 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
+
           <p className="label-time">Appointment Time:</p>
           <input
             className="input-size"
+
             type="text"
             name="time"
             value={this.state.time}
@@ -97,9 +101,11 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
+
           <p className="label-time">Do you have a copay?</p>
           <input
             className="input-size"
+
             type="text"
             name="copay"
             value={this.state.copay}

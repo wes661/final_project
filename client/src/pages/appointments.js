@@ -63,6 +63,7 @@ class Appointments extends React.Component {
           date={this.state.date}
           onCloseModal={this.onCloseModal}
         />
+
         <div className="container">
           <div className="card border-secondary">
             <div className="card-header"><center>Upcoming Appointments</center></div>
@@ -76,6 +77,7 @@ class Appointments extends React.Component {
             </div>
           </div>
         </div>
+
       </div>
       // ------ End HTML here -------------- //
     );

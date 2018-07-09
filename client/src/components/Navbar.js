@@ -66,11 +66,6 @@ class Navbar extends Component {
     const guestLinks = (
       <ul className="navbar-nav">
         <li className="nav-item">
-          {/* <Link className="nav-link signup" to="/signup">
-            Sign Up
-          </Link> */}
-        </li>
-        <li className="nav-item">
           <Link className="nav-link login" to="/">
             Login
           </Link>
@@ -81,7 +76,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm mb-4">
         <div className="container">
-          <h3 style={{ color: "white" }}>{this.titleFromLink(pathname)}</h3>
+          <h3 className="pageTitle" style={{ color: "white" }}>{this.titleFromLink(pathname)}</h3>
           <div className="topnav">
             <div className="topnav-right">
               {isAuthenticated ? authLinks : guestLinks}
@@ -111,24 +106,3 @@ export default connect(
 
 
 
-{/* <Link className="navbar-brand" to="/">
-            DevConnector
-          </Link> */}
-{/* <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mobile-nav"
-          >
-            <span className="navbar-toggler-icon" />
-          </button> */}
-
-{/* <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto"> */}
-{/* <li className="nav-item">
-                <Link className="nav-link" to="/profiles">
-                  {" "}
-                  Developers
-                </Link>
-              </li> */}
-{/* </ul> */ }

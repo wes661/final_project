@@ -13,6 +13,7 @@ export default class AppModal extends React.Component {
     const { copay } = this.props;
     const { comments } = this.props;
     const { appointment } = this.props;
+
     const currentAppointment = {
       id: 1,
       where: 'tucson',
@@ -21,6 +22,8 @@ export default class AppModal extends React.Component {
       copay: '1',
       comments: 'no comments'
     }
+
+
 
     return (
       <Modal
