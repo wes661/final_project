@@ -33,7 +33,6 @@ $lightgreenish: #C5D86D;
     font-size: 30px;
     height: 50px;
     padding-top: 5px;
-    margin-bottom: -50px;
   }
 }
 
@@ -73,7 +72,7 @@ $lightgreenish: #C5D86D;
   width: 85%;
   height: 50px;
   display: block;
-  margin-top: 22% !important;
+  
   margin: 30px auto 30px;
   color: #757575;
   background-color: #cfd86d;
@@ -126,6 +125,4 @@ $lightgreenish: #C5D86D;
 .form-control{
   @include smaller;
   font-size: 15px;
-  margin-bottom: -55px;
- 
 }
