@@ -12,8 +12,8 @@ class Appointments extends React.Component {
     this.state = {
       date: new Date(),
       open: false,
+      currentAppointment: {}
     };
-
   }
   onOpenModal = date => {
     this.setState({ open: true });
@@ -61,23 +61,11 @@ class Appointments extends React.Component {
         <AppModal
           open={this.state.open}
           date={this.state.date}
+          appointment={this.state.currentAppointment}
           onCloseModal={this.onCloseModal}
         />
 
-        <div className="container">
-          <div className="card border-secondary">
-            <div className="card-header"><center>Upcoming Appointments</center></div>
-            <div className="card-body text-secondary">
-              <p className="lighten-text"><center>Scroll through the box below..</center></p>
-              <p className="card-text scroll-box">
-                {appointmentList}
-                {appointmentList}
-                {appointmentList}
-              </p>
-            </div>
-          </div>
-        </div>
-
+        {appointmentList}
       </div>
       // ------ End HTML here -------------- //
     );
