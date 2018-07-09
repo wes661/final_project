@@ -112,6 +112,7 @@ class Form extends React.Component {
         <label>
           <p className="text-area"> Additional Comments:</p>
           <textarea
+            className="text-area-style"
             name="comments"
             value={this.state.comments}
             // value={appointment.id ? appointment.comments : ''}
@@ -120,7 +121,8 @@ class Form extends React.Component {
         </label>
         <br />
         <br />
-        <input className="text-area" type="submit" value="Submit" />
+        <br />
+        <input className="text-area-button" type="submit" value="Submit" />
       </form>
     );
   }
