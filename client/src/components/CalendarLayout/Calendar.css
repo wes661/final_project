@@ -1,0 +1,12 @@
+.react-calendar {
+    margin: auto;
+    -webkit-box-shadow: 1px 1px 7px 0px black;
+    box-shadow: 1px 1px 7px 0px black;
+    width: auto;
+    max-width: auto;
+    background: white;
+    border: 1px solid #a0a096;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+    margin-left: 20px;
+}

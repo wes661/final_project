@@ -43,12 +43,12 @@ class Form extends React.Component {
   };
 
   render() {
-    const { appointment } = this.props;
     return (
       <form onSubmit={this.onSubmit}>
         <label>
-          Date of appointment:
+          <p className="label-time">Appointment Date:</p>
           <input
+            className="input-size"
             type="text"
             name="date"
             // value={this.props.date}
@@ -58,8 +58,9 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
-          Where is your appointment:
+          <p className="label-time">Appointment Location:</p>
           <input
+            className="input-size"
             type="text"
             name="where"
             value={this.state.where}
@@ -70,8 +71,11 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
-          What is your physicians name:
+
+          <p className="label-time"> Physician Name:</p>
           <input
+            className="input-size"
+
             type="text"
             name="doctor"
             value={this.state.doctor}
@@ -82,8 +86,11 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
-          Do you know the time:
+
+          <p className="label-time">Appointment Time:</p>
           <input
+            className="input-size"
+
             type="text"
             name="time"
             value={this.state.time}
@@ -94,8 +101,11 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
-          Is there a copay:
+
+          <p className="label-time">Do you have a copay?</p>
           <input
+            className="input-size"
+
             type="text"
             name="copay"
             value={this.state.copay}
@@ -106,8 +116,9 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
-          Additional information:
+          <p className="text-area"> Additional Comments:</p>
           <textarea
+            className="text-area-style"
             name="comments"
             value={this.state.comments}
             // value={appointment.id ? appointment.comments : ''}
@@ -116,7 +127,8 @@ class Form extends React.Component {
         </label>
         <br />
         <br />
-        <input type="submit" value="Submit" />
+        <br />
+        <input className="text-area-button" type="submit" value="Submit" />
       </form>
     );
   }

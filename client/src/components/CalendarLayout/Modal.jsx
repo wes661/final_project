@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-responsive-modal";
 import Form from "./ModalForm";
 import "./custom-animation.css";
+import "../../css/modal.css";
 
 export default class AppModal extends React.Component {
   render() {
@@ -13,14 +14,16 @@ export default class AppModal extends React.Component {
     const { comments } = this.props;
     const { appointment } = this.props;
 
-    // const appointment = {
-    //   id: 1,
-    //   where: 'tucson',
-    //   doctor: 'Obsessive Coder',
-    //   time: '4:19',
-    //   copay: '1',
-    //   comments: 'no comments'
-    // }
+    const currentAppointment = {
+      id: 1,
+      where: 'tucson',
+      doctor: 'joey',
+      time: '4:19',
+      copay: '1',
+      comments: 'no comments'
+    }
+
+
 
     return (
       <Modal
@@ -37,7 +40,7 @@ export default class AppModal extends React.Component {
       >
         <Form
           date={date}
-          appointment={appointment}
+          appointment={currentAppointment}
           where={where}
           doctor={doctor}
           time={time}

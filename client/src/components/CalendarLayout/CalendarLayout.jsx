@@ -1,6 +1,6 @@
 import React from 'react';
 import Calendar from 'react-calendar';
-
+import './Calendar.css';
 
 export default class CalendarLayout extends React.Component {
 
@@ -11,7 +11,7 @@ export default class CalendarLayout extends React.Component {
                 value={this.props.date}
                 onClickDay={this.props.onOpenModal}
             />
-        );
+        )
     }
 }
 
