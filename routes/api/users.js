@@ -171,11 +171,11 @@ router.post(
   "/appointments",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    // const { errors, isValid } = validateAppointmentInput(req.body);
+    const { errors, isValid } = validateAppointmentInput(req.body);
 
-    // if (!isValid) {
-    //   return res.status(400).json(errors);
-    // }
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
     //Get fields
     // console.log(req.user);
     User.findOne({ _id: req.user._id })
