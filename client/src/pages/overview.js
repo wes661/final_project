@@ -244,7 +244,7 @@ class Overview extends React.Component {
           <div className="medication">
             <hr />
             <div className="header">Medications</div>
-            {this.checkUserMeds(user)}
+
             <table cellSpacing="0">
               <thead>
                 <tr className="hidden">

@@ -3,12 +3,18 @@ import "../css/medication.css";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import addMed from "../actions/authactions";
 // import 'bootstrap';
 
 class Medications extends React.Component {
-  state = {
-    color: "",
-    shape: ""
+  constructor(props) {
+    super();
+    this.state = {
+      color: "",
+      shape: "",
+      name: "",
+      quantity: ""
+    }
   }
   componentDidMount() {
     if (!this.props.auth.isAuthenticated) {
@@ -27,21 +33,73 @@ class Medications extends React.Component {
     })
   }
 
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      name: value
+    });
+  };
+
+  handleInputChange2 = event => {
+    const { quantity, value } = event.target;
+    this.setState({
+      quantity: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    // Preventing the default behavior of the form submit (which is to refresh the page)
+    event.preventDefault();
+    if (!this.state.name || !this.state.shape || !this.state.color || !this.state.quantity) {
+      alert("Please fill out all the input boxes...")
+    } else {
+      let newMed = {
+        name: this.state.name,
+        quantity: this.state.quantity,
+        shape: this.state.shape,
+        color: this.state.color
+      };
+      // this.props.addMed(newMed)
+    }
+  };
+
+  checkUserMeds(user) {
+    const medications = user.meds.map(med => {
+      return {
+        name: med.name,
+        color: med.color,
+        shape: med.shape,
+        days: med.days
+      }
+    });
+    let shapes = this.PopulateShapes(medications);
+    console.log(shapes)
+    console.log(user)
+    console.log(this.state)
+    return shapes;
+  }
+
   PopulateShapes = (medications) => {
     // console.log(medications);
     let shapes = medications.map(meds => {
       switch (meds.shape) {
         case "5-sided":
           return (
-            <svg width="22" height="20" viewBox="0 0 22 20">
-              <path fill={meds.color} fill-rule="evenodd" stroke="#9B9B9B" d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z" />
-            </svg>
+            <button>
+              <svg width="22" height="20" viewBox="0 0 22 20">
+                <path fill={meds.color} fill-rule="evenodd" stroke="#9B9B9B" d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z" />
+              </svg>
+            </button>
+
           )
         case "6-sided":
           return (
-            <svg width="20" height="22" viewBox="0 0 20 22">
-              <path fill={meds.color} fill-rule="evenodd" stroke="#9B9B9B" d="M10 1l8.66 5v10L10 21l-8.66-5V6z" />
-            </svg>
+            <button>
+              <svg width="20" height="22" viewBox="0 0 20 22">
+                <path fill={meds.color} fill-rule="evenodd" stroke="#9B9B9B" d="M10 1l8.66 5v10L10 21l-8.66-5V6z" />
+              </svg>
+            </button>
+
           )
         case "7-sided":
           return (
@@ -103,20 +161,6 @@ class Medications extends React.Component {
   }
 
 
-  checkUserMeds(user) {
-    const medications = user.meds.map(med => {
-      return {
-        name: med.name,
-        color: med.color,
-        shape: med.shape,
-        days: med.days
-      }
-    });
-    let shapes = this.PopulateShapes(medications);
-    return shapes;
-  }
-
-
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
@@ -124,8 +168,11 @@ class Medications extends React.Component {
 
     return (
       // -------- Start HTML here -------- //
+
       <div className="wrapper">
-        {this.checkUserMeds(user)}
+
+        {(user.meds) ? this.checkUserMeds(user) : "There is nothing Here ;)"}
+
         <ul>{medList}</ul>
 
         <div className="container-fluid">
@@ -152,8 +199,8 @@ class Medications extends React.Component {
                       </div>
                       <div className="modal-body">
                         <div className="form-group">
-                          <input type="text" className="form-control nom" placeholder="Name"></input>
-                          <input type="text" className="form-control quant" placeholder="Quant"></input>
+                          <input type="text" className="form-control nom" placeholder="Name" onChange={this.handleInputChange}></input>
+                          <input type="text" className="form-control quant" placeholder="Quant" onChange={this.handleInputChange2}></input>
                         </div>
                         {/* times of day */}
                         {/* need to link to be linked to overveiw */}
@@ -305,7 +352,11 @@ class Medications extends React.Component {
 
                         </div>
                         <div className="modal-footer">
-                          <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
+                          <button
+                            type="button"
+                            className="btn btn-default"
+                            data-dismiss="modal"
+                            onClick={this.handleFormSubmit}>Submit</button>
                         </div>
                         {/* end of modal */}
                       </div>
@@ -331,9 +382,10 @@ class Medications extends React.Component {
                   </tr>
 
                   <tr className="listOscripts">
-                    <td className="scriptNom">Xanax<button type="button" className="close" data-dismiss="listOscripts">&times;</button></td>
+                    <td className="scriptNom">Xanax<button type="button" className="close" data-dismiss="listOscripts" data-name="xanax">&times;</button></td>
                     <td>1</td>
                     <td>Night</td>
+                    {(user.meds) ? this.checkUserMeds(user) : "There is nothing Here ;)"}
                   </tr>
                 </tbody>
               </table>
@@ -373,7 +425,7 @@ class Medications extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       // ------ End HTML here -------------- //
     );
