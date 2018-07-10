@@ -295,7 +295,7 @@ class Medications extends React.Component {
                                   <input
                                     type="checkbox"
                                     name="times"
-                                    value="morning"
+                                    value={this.state.frequency}
                                   />
                                   <span className="itemLabel">Morning</span>
                                 </label>
@@ -305,7 +305,7 @@ class Medications extends React.Component {
                                   <input
                                     type="checkbox"
                                     name="times"
-                                    value="lunch"
+                                    value={this.state.frequency}
                                   />
                                   <span className="itemLabel">Afternoon</span>
                                 </label>
@@ -315,7 +315,7 @@ class Medications extends React.Component {
                                   <input
                                     type="checkbox"
                                     name="times"
-                                    value="dinner"
+                                    value={this.state.frequency}
                                   />
                                   <span className="itemLabel">Evening</span>
                                 </label>
@@ -325,7 +325,7 @@ class Medications extends React.Component {
                                   <input
                                     type="checkbox"
                                     name="times"
-                                    value="night"
+                                    value={this.state.frequency}
                                   />
                                   <span className="itemLabel">Night</span>
                                 </label>
