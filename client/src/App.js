@@ -17,9 +17,14 @@ import About from "./pages/about";
 import Profile from "./pages/profile";
 import EditProfile from "./pages/editProfile";
 import screen1 from "./pictures/test.png";
+import screen2 from "./pictures/screenshot2.png";
 import "./css/desktop.css";
 import "./device-mockups/device-mockups.min.css";
-
+import corey from "./pictures/corey.jpeg"
+import joey from "./pictures/joey.jpeg"
+import wes from "./pictures/wes.jpeg"
+import patrick from "./pictures/patrick.jpg"
+import geina from "./pictures/geina.jpeg"
 
 const SomeComponent = withRouter(props => <Navbar {...props} />);
 // Check for token
@@ -103,14 +108,45 @@ class App extends React.Component {
           </header>
 
           <section className="download bg-primary text-center" id="download">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-8 mx-auto">
-                  <h2 className="section-heading">Meet the team behind RX Tracker</h2>
-                  <p></p>
-                </div>
+            <div className="container-fluid">
+            <div className="row">
+              <div className="col-lg-12">
+                <h2 className="my-4">Meet the team behind RX Tracker</h2>
+              </div>
+              <div className="col-lg-2 offset-3 col-sm-6 text-center mb-4">
+                  <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={wes} alt=""/>
+                  <h3>Wesley Hanson</h3>
+                  <br />
+                  <p>Wesley provided backend management for the project, creating the MongoDB structure and Authentication as well as handling all the back end API routes for user data </p>
+              </div>
+                <div className="col-lg-2 col-sm-6 text-center mb-4">
+                  <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={joey} alt=""/>
+                  <h3>Joey Bridges</h3>
+                  <br />
+                  <p>Joey Designed and implimented the React calendar to keep track of user appointments.</p>
+              </div>
+                <div className="col-lg-2 col-sm-6 text-center mb-4">
+                  <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={patrick} alt=""/>
+                  <h3>Patrick Marrin</h3>
+                  <br />
+                    <p>Worked with dynamically generating SVG shape and color based on pill selection and pushing it to the overview page for rendering</p>
+              </div>
+          </div>
+          <div className="row">
+                <div className="col-lg-2 offset-4 col-sm-6 text-center mb-4">
+                  <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={corey} alt=""/>
+                  <h3>Corey Richard</h3>
+                  <br/>
+                    <p>Provided UI/UX project direction, mobile responsiveness and desktop layout. </p>
+              </div>
+                <div className="col-lg-2 col-sm-6 text-center mb-4">
+                  <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={geina} alt=""/>
+                  <h3>Angeleena Corrente</h3>
+                  <br />
+                  <p>Provided project design and worked with integrating SVG into the Medication page</p>
               </div>
             </div>
+          </div>
           </section>
 
           <section className="features" id="features">
@@ -122,7 +158,7 @@ class App extends React.Component {
                     <div className="device-mockup iphone6_plus portrait white">
                       <div className="device">
                         <div className="screen">
-                          <img src="img/test.png" class="img-fluid" alt="" />
+                          <img src={screen2} className="img-fluid mockImg" alt="" />
                         </div>
                       </div>
                     </div>
@@ -134,31 +170,32 @@ class App extends React.Component {
                       <div className="col-lg-6">
                         <div className="feature-item">
                           <i className="icon-screen-smartphone text-primary"></i>
-                          <h3>Device Mockups</h3>
-                          <p className="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                          <h3>Mobile Oriented</h3>
+                          <p className="text-muted">Using Bootstrap 4 and SCSS the Team was able to create a Mobile First application which can be used at a glance and on the go. </p>
                         </div>
                       </div>
                       <div className="col-lg-6">
                         <div className="feature-item">
-                          <i className="icon-camera text-primary"></i>
-                          <h3>Flexible Use</h3>
-                          <p className="text-muted">Put an image, video, animation, or anything else in the screen!</p>
+                          <i className="icon-calendar text-primary"></i>
+                          <h3>Keep Track
+                          </h3>
+                          <p className="text-muted"> Using a combination of React-Calendar and MongoDB has allowed our users to add an appointment or event to their calendar and ensure it is available at a moments glance. </p>
                         </div>
                       </div>
                     </div>
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="feature-item">
-                          <i className="icon-present text-primary"></i>
-                          <h3>Free to Use</h3>
-                          <p className="text-muted">As always, this theme is free to download and use for any purpose!</p>
+                          <i className="icon-speedometer text-primary"></i>
+                          <h3>Fast</h3>
+                          <p className="text-muted">We built our app from the ground up using Node, NPM and React.</p>
                         </div>
                       </div>
                       <div className="col-lg-6">
                         <div className="feature-item">
-                          <i className="icon-lock-open text-primary"></i>
-                          <h3>Open Source</h3>
-                          <p className="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
+                          <i className="icon-lock text-primary"></i>
+                          <h3>Other Tech Used</h3>
+                          <p className="text-muted">We wanted our app to be secure, with JSON Web tokens and authentication with Passport, your data is only available to your sign in.</p>
                         </div>
                       </div>
                     </div>
@@ -171,7 +208,7 @@ class App extends React.Component {
           <section className="cta">
             <div className="cta-content">
               <div className="container">
-                <h2>Stop waiting.<br />Start building.</h2>
+                <h2>Stop Guessing.<br />Start tracking.</h2>
 
               </div>
             </div>
