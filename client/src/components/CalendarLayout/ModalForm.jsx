@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-// import classnames from "classnames";
+import classnames from "classnames";
 import { connect } from "react-redux";
 import { addAppointment } from "../../actions/authactions";
 
@@ -14,10 +14,17 @@ class Form extends React.Component {
       doctor: "",
       time: "",
       copay: "",
-      comments: ""
+      comments: "",
+      errors: {}
     };
 
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onChange = e => {
@@ -43,80 +50,114 @@ class Form extends React.Component {
   };
 
   render() {
+    const { errors } = this.state;
     const { appointment } = this.props;
     return (
       <form onSubmit={this.onSubmit}>
         <label>
           Date of appointment:
-          <input
-            type="text"
-            name="date"
-            // value={this.props.date}
-            onChange={this.onChange}
-          />
+          <div className="form-group">
+            <input
+              type="text"
+              name="date"
+              className="form-control form-control-lg"
+              // value={this.props.date}
+              onChange={this.onChange}
+            />
+          </div>
         </label>
         <br />
         <br />
         <label>
           Where is your appointment:
-          <input
-            type="text"
-            name="where"
-            value={this.state.where}
-            // value={appointment.id ? appointment.where : ''}
-            onChange={this.onChange}
-          />
+          <div className="form-group">
+            <input
+              type="text"
+              className={classnames("form-control form-control-lg", {
+                "is-invalid": errors.where
+              })}
+              name="where"
+              value={this.state.where}
+              // value={appointment.id ? appointment.where : ''}
+              onChange={this.onChange}
+            />
+            {errors.where && (
+              <div className="invalid-feedback">{errors.where}</div>
+            )}
+          </div>
         </label>
         <br />
         <br />
         <label>
           What is your physicians name:
-          <input
-            type="text"
-            name="doctor"
-            value={this.state.doctor}
-            // value={appointment.id ? appointment.doctor : ''}
-            onChange={this.onChange}
-          />
+          <div className="form-group">
+            <input
+              type="text"
+              className={classnames("form-control form-control-lg", {
+                "is-invalid": errors.doctor
+              })}
+              name="doctor"
+              value={this.state.doctor}
+              // value={appointment.id ? appointment.doctor : ''}
+              onChange={this.onChange}
+            />
+            {errors.doctor && (
+              <div className="invalid-feedback">{errors.doctor}</div>
+            )}
+          </div>
         </label>
         <br />
         <br />
         <label>
           Do you know the time:
-          <input
-            type="text"
-            name="time"
-            value={this.state.time}
-            // value={appointment.id ? appointment.time : ''}
-            onChange={this.onChange}
-          />
+          <div className="form-group">
+            <input
+              type="text"
+              className={classnames("form-control form-control-lg", {
+                "is-invalid": errors.time
+              })}
+              name="time"
+              value={this.state.time}
+              // value={appointment.id ? appointment.time : ''}
+              onChange={this.onChange}
+            />
+            {errors.time && (
+              <div className="invalid-feedback">{errors.time}</div>
+            )}
+          </div>
         </label>
         <br />
         <br />
         <label>
           Is there a copay:
-          <input
-            type="text"
-            name="copay"
-            value={this.state.copay}
-            // value={appointment.id ? appointment.copay : ''}
-            onChange={this.onChange}
-          />
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              name="copay"
+              value={this.state.copay}
+              // value={appointment.id ? appointment.copay : ''}
+              onChange={this.onChange}
+            />
+          </div>
         </label>
         <br />
         <br />
         <label>
           Additional information:
-          <textarea
-            name="comments"
-            value={this.state.comments}
-            // value={appointment.id ? appointment.comments : ''}
-            onChange={this.onChange}
-          />
+          <div className="form-group">
+            <textarea
+              className="form-control form-control-lg"
+              name="comments"
+              value={this.state.comments}
+              // value={appointment.id ? appointment.comments : ''}
+              onChange={this.onChange}
+            />
+          </div>
         </label>
         <br />
         <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" className="inputButton" />
       </form>
     );
   }

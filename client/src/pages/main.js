@@ -90,14 +90,11 @@ class Main extends React.Component {
                   <div className="invalid-feedback">{errors.password}</div>
                 )}
               </div>
-              <input type="submit" className="inputButton" />
+              <input type="submit" className="inputButton"/>
               <div className="text-center">
-                <Link to="/signup" className="btn btn-sm btn-info mr-2">
+                <Link to="/signup" className="btn btn-sm btn-info mr-2 sign-upBtn">
                   Sign Up
-                </Link>{" "}
-                {/* <a href=" " className=" ">
-                  forgot password
-                </a> */}
+                </Link>
               </div>
             </form>
           </div>

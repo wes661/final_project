@@ -17,14 +17,19 @@ $lightgreenish: #C5D86D;
 .topnav-right {
   float: right;
 }
+  .pageTitle {
+      font-size: 15px!important;
+      padding-bottom: 5px;
+  }
 .topnav {
   overflow: hidden;
+
     .nav-link {
         float: left;
         text-align: center;
         padding:10px; 
         text-decoration: none;
-        font-size: 15px;
+        font-size: 12px;
         cursor: pointer;  
     }
     .logout {
