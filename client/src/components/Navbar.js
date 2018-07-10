@@ -14,35 +14,24 @@ class Navbar extends Component {
    switch (string) {
      case "/appointments":
        return "Appointments"
-       break;
      case "/profile":
        return "Profile"
-       break;
      case "/editProfile":
        return "Edit Profile"
-       break;
      case "/about":
        return "Our Mission"
-       break;
      case "/homepage":
        return "Home Page"
-       break;
      case "/medications":
        return "Medications"
-       break;
      case "/overview":
        return "Medical Overview"
-       break;
      case "/main":
        return "Login"
-       break;
      case "/signup":
        return "Register"
-       break;
-
      default: 
       return "Pill Organizer"
-       break;
    }
  }
   render() {
