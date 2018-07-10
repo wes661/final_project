@@ -5,18 +5,19 @@ const validateAppointmentInput = data => {
   let errors = {};
 
   data.where = !isEmpty(data.where) ? data.where : "";
-  data.when = !isEmpty(data.time) ? data.time : "";
-  data.name = !isEmpty(data.doctor) ? data.doctor : "";
+  data.time = !isEmpty(data.time) ? data.time : "";
+  data.doctor = !isEmpty(data.doctor) ? data.doctor : "";
+  data.date = !isEmpty(data.date) ? data.date : "";
 
   if (Validator.isEmpty(data.where)) {
-    errors.where = "where name is required";
+    errors.where = "Please enter the location of your appointment";
   }
 
   if (Validator.isEmpty(data.time)) {
-    errors.when = "when date field is required";
+    errors.time = "Please enter the time of your appointment";
   }
   if (Validator.isEmpty(data.doctor)) {
-    errors.when = "when date field is required";
+    errors.doctor = "Please enter your physician's name";
   }
 
   return {

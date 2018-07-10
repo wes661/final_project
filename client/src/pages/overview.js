@@ -142,7 +142,7 @@ class Overview extends React.Component {
           <select
             name="subjects"
             id="select"
-            className="form-control"
+            className="form-control daySelect"
             onChange={this.handleDaySelect}
           >
             <option>Select Day</option>
@@ -158,7 +158,7 @@ class Overview extends React.Component {
 
         <div className="appointments">
           <h1 className="appointmentHeader">
-            <hr />
+      
           </h1>
           <div className="table-users">
             <div className="header">Appointments</div>
@@ -269,7 +269,7 @@ class Overview extends React.Component {
                       >
                         <path
                           fill="brown"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
                         />
@@ -282,7 +282,7 @@ class Overview extends React.Component {
                       >
                         <path
                           fill="pink"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
                         />
@@ -298,7 +298,7 @@ class Overview extends React.Component {
                           cy="51"
                           r="10"
                           fill="red"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           transform="translate(-5 -40)"
                         />
@@ -314,7 +314,7 @@ class Overview extends React.Component {
                           cy="51"
                           r="10"
                           fill="red"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           transform="translate(-5 -40)"
                         />
@@ -330,7 +330,7 @@ class Overview extends React.Component {
                           cy="51"
                           r="10"
                           fill="red"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           transform="translate(-5 -40)"
                         />
@@ -346,7 +346,7 @@ class Overview extends React.Component {
                           cy="51"
                           r="10"
                           fill="red"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           transform="translate(-5 -40)"
                         />
@@ -362,7 +362,7 @@ class Overview extends React.Component {
                           cy="51"
                           r="10"
                           fill="red"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           transform="translate(-5 -40)"
                         />
@@ -380,7 +380,7 @@ class Overview extends React.Component {
                       >
                         <path
                           fill="brown"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
                         />
@@ -393,7 +393,7 @@ class Overview extends React.Component {
                       >
                         <path
                           fill="pink"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
                         />
@@ -409,7 +409,7 @@ class Overview extends React.Component {
                           cy="51"
                           r="10"
                           fill="red"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           transform="translate(-5 -40)"
                         />
@@ -427,7 +427,7 @@ class Overview extends React.Component {
                       >
                         <path
                           fill="yellow"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           d="M11 1l9.51 6.91-3.632 11.18H5.122L1.49 7.91z"
                         />
@@ -440,7 +440,7 @@ class Overview extends React.Component {
                       >
                         <path
                           fill="purple"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           d="M10 1l8.66 5v10L10 21l-8.66-5V6z"
                         />
@@ -456,7 +456,7 @@ class Overview extends React.Component {
                           cy="51"
                           r="10"
                           fill="red"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           stroke="#9B9B9B"
                           transform="translate(-5 -40)"
                         />
