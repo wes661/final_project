@@ -177,17 +177,12 @@ class App extends React.Component {
                   </p>
                 </div>
                 <div className="col-lg-2 col-sm-6 text-center mb-4">
-<<<<<<< Updated upstream
                   <img
                     className="rounded-circle img-fluid d-block mx-auto profileImg"
                     src={geina}
                     alt=""
                   />
                   <h3 className="teamName">Angeleena Corrente</h3>
-=======
-                  <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={geina} alt=""/>
-                  <h3 className="teamName">Geina Corrente</h3>
->>>>>>> Stashed changes
                   <hr />
                   <p>
                     Provided project design and worked with integrating SVG into

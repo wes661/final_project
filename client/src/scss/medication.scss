@@ -91,11 +91,11 @@ $orangeish: #F46036;
         .panel-title {
             margin-left:50px;
         }
-        .checkBox{
+        .times{
             width:200px;
-            margin-right: 5px !important;
+            margin-right: 5px;
             @include large;
-            font-size: 15px;
+            font-size: 12px;
         }
         .form-group{
             
@@ -103,7 +103,7 @@ $orangeish: #F46036;
                 margin-top:0;
             }
             .quant{
-                margin-top:10 !important;
+                margin-top:10;
             }
         }
         .btn-default{
@@ -128,8 +128,7 @@ $orangeish: #F46036;
 
 .past {
     width: 300px;
-    margin-right: 50px !important;
-    
+
     .panel-title {
         @include large;
         font-size: 20px;
@@ -147,7 +146,6 @@ $orangeish: #F46036;
         display: block;
         margin: 0 auto;
         text-align: center;
-        
     }
     
     scroll-container {
@@ -158,7 +156,6 @@ $orangeish: #F46036;
         scroll-behavior: smooth;
         border: 1px solid $orangeish;
         margin-top:10px;
-       
     }
     scroll-page {
         @include smaller;
