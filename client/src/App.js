@@ -258,7 +258,7 @@ class App extends React.Component {
                             We wanted our app to be secure, with JSON Web tokens
                             and authentication with Passport, your data is only
                             available to your sign in. We also utilized Redux
-                            managing state within our app.
+                            for managing the state within our app.
                           </p>
                         </div>
                       </div>
