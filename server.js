@@ -34,7 +34,7 @@ require("./config/passport")(passport);
 
 //Use routes
 app.use("/api/users", users);
-app.use("*", require("./client/build"));
+// app.use("*", require("./client/build"));
 
 const port = process.env.PORT || 8080;
 
