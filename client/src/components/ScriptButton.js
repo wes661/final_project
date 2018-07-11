@@ -22,14 +22,13 @@ class ScriptButton extends React.Component {
         event.preventDefault();
 
         let pill = event.target
-
-        console.log(pill.quant.value)
         this.setState({
             name: pill.name.value,
             quantity: pill.quant.value,
             shape: pill.getAttribute("data-shape"),
             color: pill.getAttribute("data-color")
         });
+        console.log(this.state)
     };
 
     updateShape = shape => {
