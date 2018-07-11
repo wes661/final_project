@@ -9,6 +9,13 @@ section.download {
     .profileImg {
         height: 150px;
         width: 150px;
+        box-shadow: -1px 6px 14px 0px rgba(0,0,0,0.56);
+    }
+    .teamName {
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: -5px;
     }
     .badges {
         .badge-link {

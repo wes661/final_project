@@ -22,7 +22,6 @@ class Homepage extends React.Component {
             <Link to="/medications"> <p className="btn btn-info col-12 medBtn">Your Medications </p></Link>
             <Link to="/appointments"> <p className="btn btn-info col-12 appBtn">Doctor Appointments </p></Link>
             <Link to="/overview">  <p className="btn btn-info col-12 overBtn">Medical Overview  </p></Link>
-            <Link to="/about"><p className="btn btn-info col-12 aboutBtn"> Our Mission </p> </Link>
           </div>
         </div>
         // ------ End HTML here -------------- //
