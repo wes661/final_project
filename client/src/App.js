@@ -115,34 +115,35 @@ class App extends React.Component {
               </div>
               <div className="col-lg-2 offset-3 col-sm-6 text-center mb-4">
                   <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={wes} alt=""/>
-                  <h3>Wesley Hanson</h3>
-                  <br />
+                  <h3 className="teamName">Wesley Hanson</h3>
+                  <hr />
                   <p>Wesley provided backend management for the project, creating the MongoDB structure and Authentication as well as handling all the back end API routes for user data </p>
+                  
               </div>
                 <div className="col-lg-2 col-sm-6 text-center mb-4">
                   <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={joey} alt=""/>
-                  <h3>Joey Bridges</h3>
-                  <br />
+                  <h3 className="teamName">Joey Bridges</h3>
+                  <hr />
                   <p>Joey Designed and implimented the React calendar to keep track of user appointments.</p>
               </div>
                 <div className="col-lg-2 col-sm-6 text-center mb-4">
                   <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={patrick} alt=""/>
-                  <h3>Patrick Marrin</h3>
-                  <br />
+                  <h3 className="teamName">Patrick Marrin</h3>
+                  <hr />
                     <p>Worked with dynamically generating SVG shape and color based on pill selection and pushing it to the overview page for rendering</p>
               </div>
           </div>
           <div className="row">
                 <div className="col-lg-2 offset-4 col-sm-6 text-center mb-4">
                   <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={corey} alt=""/>
-                  <h3>Corey Richard</h3>
-                  <br/>
+                  <h3 className="teamName">Corey Richard</h3>
+                  <hr />
                     <p>Provided UI/UX project direction, mobile responsiveness and desktop layout. </p>
               </div>
                 <div className="col-lg-2 col-sm-6 text-center mb-4">
                   <img className="rounded-circle img-fluid d-block mx-auto profileImg" src={geina} alt=""/>
-                  <h3>Angeleena Corrente</h3>
-                  <br />
+                  <h3 className="teamName">Angeleena Corrente</h3>
+                  <hr />
                   <p>Provided project design and worked with integrating SVG into the Medication page</p>
               </div>
             </div>

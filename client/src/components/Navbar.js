@@ -31,7 +31,7 @@ class Navbar extends Component {
      case "/signup":
        return "Register"
      default: 
-      return "Pill Organizer"
+      return "RX Tracker"
    }
  }
   render() {
