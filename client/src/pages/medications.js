@@ -4,7 +4,8 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { addMed } from "../actions/authactions";
 import { getShape } from "../components/Shapes";
-import ScriptButton from "../components/ScriptButton"
+import ScriptButton from "../components/ScriptButton";
+import { ScrollBox } from "../components/ScrollBox";
 
 class Medications extends React.Component {
 
@@ -55,7 +56,7 @@ class Medications extends React.Component {
 
   MedBox(medications) {
     medications.map(med => {
-    });
+    })
   }
 
   render() {
@@ -69,6 +70,7 @@ class Medications extends React.Component {
             {this.checkUserMeds(user)}
           </tbody>
         </table>
+        {ScrollBox(user)}
       </div>
     )
   }

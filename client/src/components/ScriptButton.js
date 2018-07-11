@@ -1,8 +1,4 @@
 import React from "react";
-import { PropTypes } from "prop-types";
-import { connect } from "react-redux";
-import { getUserData } from "../actions/authactions";
-import { addMed } from "../actions/authactions";
 
 class ScriptButton extends React.Component {
     constructor(props) {

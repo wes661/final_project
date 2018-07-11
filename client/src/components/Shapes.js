@@ -1,6 +1,7 @@
 import React from "react";
 
 export const getShape = props => {
+    console.log(props);
     let shape = props.shape;
     if (shape === "5-sided") {
         return (
