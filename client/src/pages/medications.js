@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/medication.css";
-import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { addMed } from "../actions/authactions";
@@ -221,7 +220,7 @@ class Medications extends React.Component {
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { user } = this.props.auth;
 
     const medList = user.meds.map(med => <li>{med.name}</li>);
 

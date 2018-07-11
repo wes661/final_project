@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/authactions";
-// import { Link } from "react-router-dom";
 import "../css/signin.css";
 
 class Signup extends React.Component {
@@ -126,7 +125,9 @@ class Signup extends React.Component {
               <input type="submit" className="inputButton" />
             </form>
           </div>
+       
         </div>
+        
       </div>
       // ------ End HTML here -------------- //
     );
