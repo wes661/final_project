@@ -31,11 +31,11 @@ class Navbar extends Component {
      case "/signup":
        return "Register"
      default: 
-      return "Pill Organizer"
+      return "RX Tracker"
    }
  }
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { isAuthenticated} = this.props.auth;
     const {pathname} = this.props.location;
     const authLinks = (
       <ul className="navbar-nav">
@@ -43,11 +43,11 @@ class Navbar extends Component {
           <Link className="nav-link home" to="/homepage">
             Home Page
             </Link>
-          <a href="" onClick={this.onLogoutClick.bind(this)} className="nav-link">
+          <div href="" onClick={this.onLogoutClick.bind(this)} className="nav-link">
             <Link className="nav-link logout" to="/">
               Logout
             </Link>
-          </a>
+          </div>
         </li>
       </ul>
     );

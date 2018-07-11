@@ -39,14 +39,13 @@ class Appointments extends React.Component {
 
     const appointmentList = user.appointments.map(appointment => (
       <ul>
-        <br />
-        <li>{appointment.date}</li>
-        <li>{appointment.where}</li>
-        <li>{appointment.doctor}</li>
-        <li>{appointment.time}</li>
-        <li>{appointment.copay}</li>
-        <li>{appointment.comments}</li>
-        <br />
+        <li>Date: {appointment.date}</li>
+        <li>Where: {appointment.where}</li>
+        <li>With: {appointment.doctor}</li>
+        <li>At: {appointment.time}</li>
+        <li>Copay: {appointment.copay}</li>
+        <li>Notes: {appointment.comments}</li>
+        <hr/>
       </ul>
     ));
     return (
@@ -62,20 +61,17 @@ class Appointments extends React.Component {
           date={this.state.date}
           onCloseModal={this.onCloseModal}
         />
-        <div className="container">
+
+        <div className=" col-12 card-header">
+          <center>Upcoming Appointments</center>
+        </div>
+        <div className="container-fluid">
           <div className="card border-secondary">
-            <div className="card-header">
-              <center>Upcoming Appointments</center>
-            </div>
             <div className="card-body text-secondary">
-              <p className="lighten-text">
-                <center>Scroll through the box below..</center>
-              </p>
-              <p className="card-text scroll-box">
-                {appointmentList}
-                {appointmentList}
-                {appointmentList}
-              </p>
+              {appointmentList}
+              {/* <p className="card-text scroll-box">
+               
+              </p> */}
             </div>
           </div>
         </div>
