@@ -41,7 +41,7 @@ class ScriptButton extends React.Component {
         return (
 
 
-            <div>
+            <div className="wrapper current">
                 <div className="panel-heading">
                     <button
                         type="button"
@@ -49,7 +49,7 @@ class ScriptButton extends React.Component {
                         data-toggle="modal"
                         data-target="#myModal">
                         New Script
-                                    </button>
+                    </button>
                     <br />
                     <h3 className="panel-title">Current Scripts</h3>
                     {/* <button type="button" className = "btn btn-info btn-sm modalBtn" data-toggle="modal" data-target="#myModal">New Script</button> */}
@@ -68,7 +68,7 @@ class ScriptButton extends React.Component {
                                     data-dismiss="modal"
                                 >
                                     &times;
-                        </button>
+                                </button>
                             </div>
                             <form onSubmit={this.handleFormSubmit} className="modal-body" id="pillForm" data-shape="null">
                                 <div className="form-group">
@@ -85,8 +85,8 @@ class ScriptButton extends React.Component {
                                         placeholder="Quant"
                                         onChange={this.handleInputChange2}></input>
                                 </div>
-                                {/* times of day */}
-                                {/* need to link to be linked to overveiw */}
+                                {/* -------times of day------------- */}
+                               
                                 <div className="checkBox form-wrapper">
                                     <span className="freq-form-control-wrap">
                                         <span className="freq-form-control  freq-checkbox freq-validates-as-required">
@@ -135,7 +135,7 @@ class ScriptButton extends React.Component {
                                     </span>
                                 </div>
                                 <br />
-                                {/* shape dropdown btn */}
+                    {/* -------------shape dropdown btn---------- */}
                                 {/* {this.state.shape} */}
                                 <div className="input-group">
                                     <div className="input-group-prepend">
@@ -147,7 +147,7 @@ class ScriptButton extends React.Component {
                                             aria-expanded="false"
                                         >
                                             Shape
-                            </button>
+                                        </button>
                                         <div className="dropdown-menu">
                                             <div className="dropdown-item kolor">
                                                 <input
@@ -413,7 +413,7 @@ class ScriptButton extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                {/* color drop downbtn */}
+                {/* -----color drop downbtn--------------- */}
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <button
@@ -424,7 +424,7 @@ class ScriptButton extends React.Component {
                                             aria-expanded="false"
                                         >
                                             Color
-                            </button>
+                                        </button>
                                         <div className="dropdown-menu">
                                             <div className="dropdown-item kolor">
                                                 <input
@@ -444,7 +444,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     White
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -453,7 +453,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Red
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -462,7 +462,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Pink
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -471,7 +471,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Light blue
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -480,7 +480,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Dark blue
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -489,7 +489,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Green
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -498,7 +498,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Yellow
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -507,7 +507,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Brown
-                                </label>
+                                                </label>
                                                 <label
                                                     className="dropdown-item kolor"
                                                     href="#"
@@ -516,7 +516,7 @@ class ScriptButton extends React.Component {
                                                     }}
                                                 >
                                                     Orange
-                                </label>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
