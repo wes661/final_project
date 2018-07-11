@@ -16,29 +16,26 @@ $lightgreenish: #C5D86D;
 
 .medBtn{
     padding: 40px !important;
-    border-radius: 15px !important;
-    margin-top: 15% !important;
+    border-radius: 10px !important;
+    margin-top: 30% !important;
     background-color: $orangeish !important;
     box-shadow: 4px 21px 36px 0px rgba(0, 0, 0, 0.466) !important;
-        a {
-            @include smaller;
-            font-size: 1.5em!important;
-            letter-spacing: 2px!important;
-            color:white!important;
-        }
+    @include smaller;
+    font-size: 2em!important;
+    letter-spacing: 2px!important;
+    color:white!important;
 }
 .appBtn {
     padding: 40px!important;
+    padding-left: 20px!important;
     border-radius: 15px!important;
     margin-top: 30px!important;
     background-color: $lightgreenish!important;
     box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466)!important;
-        a {
-            @include smaller;
-            font-size: 1.5em!important;
-            letter-spacing: 2px!important;
-            color:white!important;
-        }
+    @include smaller;
+    font-size: 2em!important;
+    letter-spacing: 2px!important;
+    color:white!important;
 }
 .overBtn{
     padding: 40px!important;
@@ -46,23 +43,8 @@ $lightgreenish: #C5D86D;
     margin-top: 30px!important;
     background-color: $greenish!important;
     box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466)!important;
-        a {
-            @include smaller;
-            font-size: 1.5em!important;
-            letter-spacing: 2px!important;
-            color:white!important;
-        }
-}
-.aboutBtn{
-    padding: 40px!important;
-    border-radius: 15px!important;
-    margin-top: 30px!important;
-    background-color: $blueish!important;
-    box-shadow: 4px 21px 36px 0px rgba(0,0,0,0.466)!important;
-        a {
-            @include smaller;
-            font-size: 1.5em!important;
-            letter-spacing: 2px!important;
-            color:white!important;
-        }
+    @include smaller;
+    font-size: 2em!important;
+    letter-spacing: 2px!important;
+    color:white!important;
 }

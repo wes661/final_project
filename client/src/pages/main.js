@@ -95,10 +95,12 @@ class Main extends React.Component {
                 <Link to="/signup" className="btn btn-sm btn-info mr-2 sign-upBtn">
                   Sign Up
                 </Link>
+                <Link to="/about"><p className="btn btn-sm btn-info missionBtn"> About</p> </Link>
               </div>
             </form>
           </div>
         </div>
+       
       </div>
       // ------ End HTML here -------------- //
     );
