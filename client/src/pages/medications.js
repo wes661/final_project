@@ -747,7 +747,7 @@ class Medications extends React.Component {
                       <button
                         type="button"
                         className="close"
-                        data-dismiss="listOscripts"
+                        data-dismiss="table"
                       >
                         &times;
                       </button>
@@ -756,13 +756,13 @@ class Medications extends React.Component {
                     <td>Morning/Evening</td>
                   </tr>
 
-                  <tr className="listOscripts">
+                  <tr className="table">
                     <td className="scriptNom">
                       Oxycodon{" "}
                       <button
                         type="button"
                         className="close"
-                        data-dismiss="listOscripts"
+                        data-dismiss="table"
                       >
                         &times;
                       </button>
@@ -776,7 +776,7 @@ class Medications extends React.Component {
                       Xanax<button
                         type="button"
                         className="close"
-                        data-dismiss="listOscripts"
+                        data-dismiss="table"
                       >
                         &times;
                       </button>
