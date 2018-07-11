@@ -12,7 +12,7 @@ const validateLoginInput = require("../../validation/login");
 const validateAppointmentInput = require("../../validation/appointment");
 
 //Load User model
-const User = require("../../models/User");
+const User = require("../../models/user");
 
 //@route  GET api/users/test
 //@desc   Test users route

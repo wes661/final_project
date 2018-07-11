@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const env = require("dotenv").config();
 
 const users = require("./routes/api/users");
 
@@ -13,7 +14,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //DB Config
-const db = require("./config/keys").mongoURI;
+const db = process.env.MONGODB_URI
+  ? process.env.MONGODB_URI
+  : require("./config/keys").mongoURI;
+
+app.use(express.static("client/build"));
 
 //Connect to MongoDB
 mongoose
@@ -29,6 +34,7 @@ require("./config/passport")(passport);
 
 //Use routes
 app.use("/api/users", users);
+// app.use("*", require("./client/build"));
 
 const port = process.env.PORT || 8080;
 

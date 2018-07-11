@@ -4,7 +4,6 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { getUserData } from "../actions/authactions";
 import "../css/homepage.css";
-import screen1 from "../pictures/test.png";
 
 
 class Homepage extends React.Component {

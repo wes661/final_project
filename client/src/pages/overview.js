@@ -7,8 +7,6 @@ import "../css/overview.css";
 import placeholder from "../pictures/placeholder.jpeg";
 import background from "../pictures/profilebackground.png";
 
-import oval from "../pictures/circle.svg";
-
 class Overview extends React.Component {
   state = {
     day: ""
@@ -119,7 +117,7 @@ class Overview extends React.Component {
   render() {
     const { user } = this.props.auth;
 
-    const medList = user.meds.map(med => <td>{med.name}</td>);
+    // const medList = user.meds.map(med => <td>{med.name}</td>);
 
 
     return (
