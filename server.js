@@ -17,6 +17,8 @@ const db = process.env.MONGODB_URI
   ? process.env.MONGODB_URI
   : require("./config/keys").mongoURI;
 
+app.use(express.static("client/build"));
+
 //Connect to MongoDB
 mongoose
   .connect(db)
