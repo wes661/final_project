@@ -91,7 +91,7 @@ class App extends React.Component {
                   <div className="header-content mx-auto">
                     <h1 className="mb-5">
                       RX Tracker is an app which aims to simplify keeping track
-                      of your pills and doctor appointments.{" "}
+                      of your pills and appointments.{" "}
                     </h1>
                   </div>
                 </div>
