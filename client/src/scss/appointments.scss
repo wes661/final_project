@@ -27,55 +27,36 @@ $lightgreenish: #c5d86d;
     margin-bottom: 0em;
   }
 }
-
+.card-header {
+    background-color: $blueish;
+    box-shadow: 0px 10px 14px -2px rgba(0, 0, 0, 0.75);
+    color: white;
+    margin: auto;
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+  }
 .card.border-secondary {
   @include smaller;
-  margin-top: 10px;
-  background-color: white;
+  margin-top: 20px!important;
+  background-color: #eae6e6;
+  overflow-y: scroll;
+  height: 250px;
+  font-size: 1em;
   border: none;
   width: 100%;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: auto;
   border: solid gray 0.5px;
   padding-right: 5px;
   padding-left: 10px;
   padding-bottom: 5%;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 5px;
   box-shadow: 0px 10px 14px 2px rgba(0, 0, 0, 0.25);
-  .card-header {
-    background-color: #646464;
-    box-shadow: 0px 10px 14px -2px rgba(0, 0, 0, 0.75);
-    color: white;
-    margin-right: -6px;
-    margin-left: -11px;
-    margin-top: 0px;
-    padding-left: 10px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
 
-  .lighten-text {
-    color: lightgray;
-    margin-top: 10px;
-  }
 
   .text-secondary {
     @include large;
     color: #161617 !important;
-    .scroll-box {
-      overflow-y: scroll;
-      height: 180px;
-      margin-top: 20px;
-      border: solid gray 0.5px;
-      padding: 20px;
-      margin-left: -9px;
-      background-color: #eae6e6;
-      box-shadow: 4px 5px 12px -2px rgba(0, 0, 0, 0.75);
-      border-radius: 15px;
-      font-size: 1.4em;
-    }
+    border: none;
   }
 }
