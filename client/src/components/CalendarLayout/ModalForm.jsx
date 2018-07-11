@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { addAppointment } from "../../actions/authactions";
+import "../../css/modal.css";
+
 
 class Form extends React.Component {
   constructor() {
@@ -11,7 +13,7 @@ class Form extends React.Component {
     this.state = {
       date: "",
       where: "",
-      doctor: "",
+      copay: "",
       time: "",
       copay: "",
       comments: "",
@@ -38,9 +40,9 @@ class Form extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     const newAppointment = {
-      date: "Sat Jul 07 2018 00:00:00 GMT-0700",
+      date: this.state.date,
       where: this.state.where,
-      doctor: this.state.doctor,
+      copay: this.state.doctor,
       time: this.state.time,
       copay: this.state.copay,
       comments: this.state.comments
@@ -54,100 +56,114 @@ class Form extends React.Component {
     const { appointment } = this.props;
     return (
       <form onSubmit={this.onSubmit}>
+        <br />
+        <br />
         <label>
-          Date of appointment:
-          <div className="form-group">
-            <input
-              type="text"
-              name="date"
-              className="form-control form-control-lg"
-              // value={this.props.date}
-              onChange={this.onChange}
-            />
-          </div>
+          <p>Date of appointment:</p>
+        </label>
+        <div className="form-group">
+          <input
+            name="date"
+            className="form-control form-control-lg"
+            value={this.props.date}
+            onChange={this.onChange}
+          />
+        </div>
+
+        <br />
+        <br />
+        <label>
+          <p>Where is your appointment:</p>
+        </label>
+        <div className="form-group">
+          <input
+            type="text"
+            className={classnames("form-control form-control-lg", {
+              "is-invalid": errors.where
+            })}
+            name="where"
+            placeholder="e.g. Tucson, AZ"
+            value={this.state.where}
+            // value={appointment.id ? appointment.where : ''}
+            onChange={this.onChange}
+          />
+          {errors.where && (
+            <div className="invalid-feedback">{errors.where}</div>
+          )}
+        </div>
+
+        <br />
+        <br />
+        <label>
+          <p> What is your physicians name:</p>
+        </label>
+        <div className="form-group">
+          <input
+            type="text"
+            className={classnames("form-control form-control-lg", {
+              "is-invalid": errors.doctor
+            })}
+            name="doctor"
+            placeholder="e.g. Dr. Snyder"
+            value={this.state.doctor}
+            // value={appointment.id ? appointment.copay : ''}
+            onChange={this.onChange}
+          />
+          {errors.doctor && (
+            <div className="invalid-feedback">{errors.doctor}</div>
+          )}
+        </div>
+        <br />
+        <br />
+
+        <label>
+          <p> Do you know the time:</p>
+        </label>
+        <div className="form-group">
+          <input
+            type="time"
+            className={classnames("form-control form-control-lg", {
+              "is-invalid": errors.time
+            })}
+            name="time"
+            value={this.state.time}
+            // value={appointment.id ? appointment.time : ''}
+            onChange={this.onChange}
+          />
+          {errors.time && (
+            <div className="invalid-feedback">{errors.time}</div>
+          )}
+        </div>
+
+        <br />
+        <br />
+        <label>
+          <p> Co-pay amount?</p>
         </label>
         <br />
-        <br />
-        <label>
-          Where is your appointment:
-          <div className="form-group">
-            <input
-              type="text"
-              className={classnames("form-control form-control-lg", {
-                "is-invalid": errors.where
-              })}
-              name="where"
-              value={this.state.where}
-              // value={appointment.id ? appointment.where : ''}
-              onChange={this.onChange}
-            />
-            {errors.where && (
-              <div className="invalid-feedback">{errors.where}</div>
-            )}
-          </div>
-        </label>
+        <div className="form-group">
+          <input
+            type="text"
+            className={classnames("form-control form-control-lg", {
+              "is-invalid": errors.copay
+            })}
+            name="copay"
+            placeholder="e.g. $100.00 (add amount here)"
+            value={this.state.copay}
+            // value={appointment.id ? appointment.copay : ''}
+            onChange={this.onChange}
+          />
+          {errors.copay && (
+            <div className="invalid-feedback">{errors.copay}</div>
+          )}
+        </div>
         <br />
         <br />
         <label>
-          What is your physicians name:
-          <div className="form-group">
-            <input
-              type="text"
-              className={classnames("form-control form-control-lg", {
-                "is-invalid": errors.doctor
-              })}
-              name="doctor"
-              value={this.state.doctor}
-              // value={appointment.id ? appointment.doctor : ''}
-              onChange={this.onChange}
-            />
-            {errors.doctor && (
-              <div className="invalid-feedback">{errors.doctor}</div>
-            )}
-          </div>
-        </label>
-        <br />
-        <br />
-        <label>
-          Do you know the time:
-          <div className="form-group">
-            <input
-              type="text"
-              className={classnames("form-control form-control-lg", {
-                "is-invalid": errors.time
-              })}
-              name="time"
-              value={this.state.time}
-              // value={appointment.id ? appointment.time : ''}
-              onChange={this.onChange}
-            />
-            {errors.time && (
-              <div className="invalid-feedback">{errors.time}</div>
-            )}
-          </div>
-        </label>
-        <br />
-        <br />
-        <label>
-          Is there a copay:
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              name="copay"
-              value={this.state.copay}
-              // value={appointment.id ? appointment.copay : ''}
-              onChange={this.onChange}
-            />
-          </div>
-        </label>
-        <br />
-        <br />
-        <label>
-          Additional information:
+          <p> Additional information:</p>
           <div className="form-group">
             <textarea
-              className="form-control form-control-lg"
+              className=" text-area-style form-control form-control-lg"
               name="comments"
               value={this.state.comments}
               // value={appointment.id ? appointment.comments : ''}
@@ -155,7 +171,6 @@ class Form extends React.Component {
             />
           </div>
         </label>
-        <br />
         <br />
         <input type="submit" className="inputButton" />
       </form>
