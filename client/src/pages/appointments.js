@@ -71,11 +71,7 @@ class Appointments extends React.Component {
               <p className="lighten-text">
                 <center>Scroll through the box below..</center>
               </p>
-              <p className="card-text scroll-box">
-                {appointmentList}
-                {appointmentList}
-                {appointmentList}
-              </p>
+              <p className="card-text scroll-box">{appointmentList}</p>
             </div>
           </div>
         </div>

@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //DB Config
-const db = require("./config/keys").mongoURI;
+const db = process.env.MONGODB_URI
+  ? process.env.MONGODB_URI
+  : require("./config/keys").mongoURI;
 
 //Connect to MongoDB
 mongoose
@@ -29,6 +31,7 @@ require("./config/passport")(passport);
 
 //Use routes
 app.use("/api/users", users);
+app.use("*", require("./client/build"));
 
 const port = process.env.PORT || 8080;
 
