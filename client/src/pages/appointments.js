@@ -6,6 +6,7 @@ import CalendarLayout from "../components/CalendarLayout/CalendarLayout";
 import AppModal from "../components/CalendarLayout/Modal";
 import "../css/appointments.css";
 
+
 class Appointments extends React.Component {
   constructor(props) {
     super();
