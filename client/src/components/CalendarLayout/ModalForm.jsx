@@ -111,6 +111,22 @@ class Form extends React.Component {
             <div className="invalid-feedback">{errors.doctor}</div>
           )}
         </div>
+        </label>
+        <div className="form-group">
+          <input
+            type="text"
+            className={classnames("form-control form-control-lg", {
+              "is-invalid": errors.doctor
+            })}
+            name="doctor"
+            placeholder="e.g. Dr. Snyder"
+            value={this.state.doctor}
+            onChange={this.onChange}
+          />
+          {errors.doctor && (
+            <div className="invalid-feedback">{errors.doctor}</div>
+          )}
+        </div>
         <br />
         <br />
 
