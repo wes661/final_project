@@ -7,13 +7,14 @@ import { addAppointment } from "../../actions/authactions";
 import "../../css/modal.css";
 
 
+
 class Form extends React.Component {
   constructor() {
     super();
     this.state = {
       date: "",
       where: "",
-      copay: "",
+      doctor: "",
       time: "",
       copay: "",
       comments: "",
@@ -42,7 +43,7 @@ class Form extends React.Component {
     const newAppointment = {
       date: this.state.date,
       where: this.state.where,
-      copay: this.state.doctor,
+      doctor: this.state.doctor,
       time: this.state.time,
       copay: this.state.copay,
       comments: this.state.comments
@@ -138,26 +139,28 @@ class Form extends React.Component {
         <br />
         <br />
         <label>
-          <p> Co-pay amount?</p>
+          <p> Co-pay amount:</p>
         </label>
-        <br />
-        <div className="form-group">
-          <input
-            type="text"
-            className={classnames("form-control form-control-lg", {
-              "is-invalid": errors.copay
-            })}
-            name="copay"
-            placeholder="e.g. $100.00 (add amount here)"
-            value={this.state.copay}
-            // value={appointment.id ? appointment.copay : ''}
-            onChange={this.onChange}
-          />
+        <div className="form-group input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">$</span>
+            <input
+              type="text"
+              className={classnames("form-group input-group mb-3 form-control form-control-lg", {
+                "is-invalid": errors.copay
+              })}
+              placeholder="e.g. $100.00 (add amount here)"
+              aria-label="Username" aria-describedby="basic-addon1"
+              name="copay"
+              placeholder="e.g. 100.00"
+              value={this.state.copay}
+              onChange={this.onChange}
+            />
+          </div>
           {errors.copay && (
             <div className="invalid-feedback">{errors.copay}</div>
           )}
         </div>
-        <br />
         <br />
         <label>
           <p> Additional information:</p>
@@ -171,7 +174,6 @@ class Form extends React.Component {
             />
           </div>
         </label>
-        <br />
         <input type="submit" className="inputButton" />
       </form>
     );
