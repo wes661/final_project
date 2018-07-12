@@ -4,9 +4,6 @@ import Form from "./ModalForm";
 import "./custom-animation.css";
 
 export default class AppModal extends React.Component {
-  formatterFunction = (date) => {
-    return `${(date.getMonth() + 1)} / ${date.getDate()} / ${date.getFullYear()}`;
-  }
   render() {
     const { date } = this.props;
     const { where } = this.props;
@@ -15,7 +12,6 @@ export default class AppModal extends React.Component {
     const { copay } = this.props;
     const { comments } = this.props;
     const { appointment } = this.props;
-    const dateOutput = this.formatterFunction(date);
 
     // const appointment = {
     //   id: 1,
@@ -40,7 +36,7 @@ export default class AppModal extends React.Component {
         animationDuration={0}
       >
         <Form
-          date={dateOutput}
+          date={date}
           appointment={appointment}
           where={where}
           doctor={doctor}
