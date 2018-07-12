@@ -18,7 +18,7 @@ $orangeish: #F46036;
 .current {
     width: 300px;
     margin-bottom: 10px;
-
+    margin-left:10px;
     .form-control {
         width: 186px;
     }
@@ -88,27 +88,30 @@ $orangeish: #F46036;
         .modal-body{
             margin-left:25px;
         }
-        .panel-title {
-            margin-left:50px;
-        }
-        .times{
+        
+        .checkBox{
             width:200px;
-            margin-right: 5px;
             @include large;
-            font-size: 12px;
+            font-size: 15px;
+
+            .itemLabel{
+               margin-right: 10px; 
+            }
         }
+        
         .form-group{
-            
-            .nom{
-                margin-top:0;
-            }
-            .quant{
-                margin-top:10;
-            }
+            height:90px;
+
+            .form-control{
+                margin-top: 10px !important; 
+                margin-bottom:  10px;
+            }   
         }
+        
         .btn-default{
             color:white;
         }
+
         .input-group{
             width:100px;
 
