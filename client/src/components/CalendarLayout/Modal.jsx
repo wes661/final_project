@@ -15,7 +15,7 @@ export default class AppModal extends React.Component {
     const { copay } = this.props;
     const { comments } = this.props;
     const { appointment } = this.props;
-    const dateOutput = this.formatterFunction(date)
+    const dateOutput = this.formatterFunction(date);
 
     // const appointment = {
     //   id: 1,

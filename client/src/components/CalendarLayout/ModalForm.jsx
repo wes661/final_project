@@ -9,10 +9,10 @@ import "../../css/modal.css";
 
 
 class Form extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      date: "",
+      date: this.props.date,
       where: "",
       doctor: "",
       time: "",
@@ -54,7 +54,6 @@ class Form extends React.Component {
 
   render() {
     const { errors } = this.state;
-    const { appointment } = this.props;
     return (
       <form onSubmit={this.onSubmit}>
         <br />
@@ -85,7 +84,6 @@ class Form extends React.Component {
             name="where"
             placeholder="e.g. Tucson, AZ"
             value={this.state.where}
-            // value={appointment.id ? appointment.where : ''}
             onChange={this.onChange}
           />
           {errors.where && (
@@ -107,7 +105,6 @@ class Form extends React.Component {
             name="doctor"
             placeholder="e.g. Dr. Snyder"
             value={this.state.doctor}
-            // value={appointment.id ? appointment.copay : ''}
             onChange={this.onChange}
           />
           {errors.doctor && (
@@ -128,7 +125,6 @@ class Form extends React.Component {
             })}
             name="time"
             value={this.state.time}
-            // value={appointment.id ? appointment.time : ''}
             onChange={this.onChange}
           />
           {errors.time && (
@@ -150,7 +146,8 @@ class Form extends React.Component {
                 "is-invalid": errors.copay
               })}
               placeholder="e.g. $100.00 (add amount here)"
-              aria-label="Username" aria-describedby="basic-addon1"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
               name="copay"
               placeholder="e.g. 100.00"
               value={this.state.copay}
@@ -169,7 +166,6 @@ class Form extends React.Component {
               className=" text-area-style form-control form-control-lg"
               name="comments"
               value={this.state.comments}
-              // value={appointment.id ? appointment.comments : ''}
               onChange={this.onChange}
             />
           </div>
