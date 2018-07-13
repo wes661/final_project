@@ -53,7 +53,7 @@ class ScriptButton extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper current">
         <div className="panel-heading">
           <button
             type="button"
@@ -155,7 +155,7 @@ class ScriptButton extends React.Component {
                 <br />
                 {/* shape dropdown btn */}
                 {/* {this.state.shape} */}
-                <div className="input-group">
+                <div className="input-group meds">
                   <div className="input-group-prepend">
                     <button
                       className="btn btn-primary dropdown-toggle"
@@ -432,7 +432,7 @@ class ScriptButton extends React.Component {
                   </div>
                 </div>
                 {/* color drop downbtn */}
-                <div className="input-group">
+                <div className="input-group meds">
                   <div className="input-group-prepend">
                     <button
                       className="btn btn-primary dropdown-toggle"
@@ -540,7 +540,7 @@ class ScriptButton extends React.Component {
                   </div>
                 </div>
                 <div className="modal-footer">
-                  <button type="submit" className="btn btn-default">
+                  <button type="submit" className="btn btn-default submitBtn">
                     Submit
                   </button>
                 </div>
