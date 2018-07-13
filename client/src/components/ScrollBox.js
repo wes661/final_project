@@ -21,7 +21,7 @@ export const ScrollBox = props => {
             data-offset="0"
             className="scrollspy-example"
         >
-            <div className="col past">
+            {/* <div className="col past">
                 <div className="panel panel-success">
                     <div className="panel-heading">
                         <h3 className="panel-title">Past Scripts</h3>
@@ -31,7 +31,7 @@ export const ScrollBox = props => {
                         {pastScripts}
                     </scroll-container>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 

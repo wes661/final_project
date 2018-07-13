@@ -1,15 +1,11 @@
 @import 'reset';
-
 @mixin large {
     font-family: 'Montserrat', sans-serif;
 }
-
 @mixin smaller {
     font-family: 'Neuton', serif;
 }
-
 $orangeish: #F46036;
-
 .row {
         // margin-top: 40px;
         padding: 10px;
@@ -18,7 +14,7 @@ $orangeish: #F46036;
 .current {
     width: 300px;
     margin-bottom: 10px;
-
+    margin-left:10px;
     .form-control {
         width: 186px;
     }
@@ -44,7 +40,6 @@ $orangeish: #F46036;
         @include large;
         font-size: 15px;
         width: 300px;
-
         .th {
             background-color: rgba(244, 95, 54, 0) !important;
         }
@@ -54,6 +49,12 @@ $orangeish: #F46036;
         @include large;
         margin-bottom: 10px;
     }
+    .submitBtn {
+        background-color: $orangeish;
+        @include large;
+        margin-bottom: 10px;
+        width: 100px!important;
+    }
     .panel-title {
         @include large;
         font-size: 20px;
@@ -61,14 +62,12 @@ $orangeish: #F46036;
     }
     .scripts {
         align-items: center;
-
         .listOscripts {
             width: 300px;
             padding-right: 10px;
             margin-bottom: 10px;
             // need to center text
             display: block;
-
             .xBtn {
                 width: 45.5px;
                
@@ -81,41 +80,42 @@ $orangeish: #F46036;
     }
     .modal-content {
         width: 300px;
-
         .dropdown-toggle{
           border-color: #F46036;
         }
         .modal-body{
             margin-left:25px;
         }
-        .panel-title {
-            margin-left:50px;
-        }
-        .times{
+        
+        .checkBox{
             width:200px;
-            margin-right: 5px;
             @include large;
-            font-size: 12px;
+            font-size: 15px;
+            .itemLabel{
+               margin-right: 10px; 
+            }
         }
+        
         .form-group{
-            
-            .nom{
-                margin-top:0;
-            }
-            .quant{
-                margin-top:10;
-            }
+            height:90px;
+            .form-control{
+                margin-top: 10px !important; 
+                margin-bottom:  10px;
+            }   
         }
+        
         .btn-default{
             color:white;
         }
         .input-group{
             width:100px;
-
+            .input-group-prepend {
+                margin-bottom: 10px;
+            }
             .itemLabel{
                 @include large;
                 font-size: 12px;
-                padding-right:5px;
+                padding-right:5px!important;
             }
             .kolor{
                 @include large;
@@ -125,10 +125,8 @@ $orangeish: #F46036;
       
     }
 }
-
 .past {
     width: 300px;
-
     .panel-title {
         @include large;
         font-size: 20px;
@@ -167,5 +165,4 @@ $orangeish: #F46036;
         font-size: 25px;
     }
 }
-
 // https://bootsnipp.com/snippets/featured/panel-tables-with-filter
