@@ -50,6 +50,7 @@ class Form extends React.Component {
     };
     this.props.addAppointment(newAppointment, this.props.history);
     this.props.onSubmit();
+    window.location.reload(true);
   };
 
   render() {
@@ -65,7 +66,7 @@ class Form extends React.Component {
           <input
             name="date"
             className="form-control form-control-lg"
-            value={this.props.date}
+            defaultValue={this.props.date}
             onChange={this.onChange}
           />
         </div>
